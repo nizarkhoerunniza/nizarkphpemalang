@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhutani KPH Pemalang - Publikasi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/style3.css">
+<style>
+    /* Smooth Scroll */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Responsif untuk HP Android / Layar Kecil (Portrait) */
+    @media screen and (max-width: 768px) {
+        .services-section .container,
+        .page-header-section .container {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
+
+        .glass-card {
+            padding: 15px !important;
+        }
+
+        .page-header-section h1 {
+            font-size: 1.6rem !important;
+        }
+
+        .rimba-grid-responsive {
+            grid-template-columns: 1fr !important;
+        }
+
+        .rimba-kategori-responsive {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        }
+
+        .content-grid-layout {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 20px !important;
+            padding: 0 10px !important;
+        }
+
+        .announcement-card {
+            flex-direction: column !important;
+            padding: 15px !important;
+        }
+
+        .announcement-card .ann-img {
+            width: 100% !important;
+            height: 180px !important;
+        }
+
+        .announcement-card .ann-img img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+        }
+    }
+
+    /* Sinkronisasi Widget Cuaca */
+    .weather-widget {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 6px 12px;
+        border-radius: 10px;
+    }
+    
+    @media screen and (max-width: 950px) {
+        .weather-widget {
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            padding: 3px 8px !important;
+            gap: 4px !important;
+            background: rgba(15, 35, 25, 0.85) !important;
+            border: 1px solid rgba(74, 222, 128, 0.4) !important;
+            border-radius: 12px !important;
+        }
+        .weather-widget span:not(.temp):not(.weather-icon),
+        .weather-widget div:not(.temp):not(.weather-icon),
+        .weather-widget p,
+        .weather-widget small {
+            display: none !important;
+        }
+        .weather-widget .weather-icon,
+        .weather-widget .temp {
+            display: inline-block !important;
+            visibility: visible !important;
+            font-size: 0.85rem !important;
+        }
+    }
+
+    .weather-icon {
+        font-size: 1.2rem;
+        color: #facc15; 
+        flex-shrink: 0; 
+    }
+
+    .weather-info {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+    }
+
+    .weather-info .temp {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .weather-info .location {
+        font-size: 0.7rem;
+        color: #94a3b8;
+    }
+</style>
+</head>
+<body>
+<header class="premium-header">
+    <div class="header-inner">
+        <a href="index.html" class="brand-premium">
+            <span class="brand-logo-ring">
+                <img src="assets/perhutanii.jpg" alt="Logo Perhutani">
+            </span>
+            <span class="brand-copy">
+                <strong>PERHUTANI</strong>
+                <small>KPH PEMALANG</small>
+            </span>
+        </a>
+
+        <nav class="premium-nav" aria-label="Navigasi utama">
+            <a href="index.html" class="premium-link">Beranda</a>
+            <a href="tentangkami.html" class="premium-link">Tentang Kami</a>  
+            <a href="unitbisnis.html" class="premium-link">Unit Bisnis</a>
+            <a href="publikasi.html" class="premium-link active">Publikasi</a>
+            <a href="layanan.html" class="premium-link">Layanan</a>
+            <a href="karir.html" class="premium-link">Karir</a>
+        </nav>
+
+        <div class="header-actions">
+            <button type="button" id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Buka Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="search-wrapper premium-search">
+                <button id="searchBtn" class="header-action" title="Cari">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <div class="search-box" id="searchBox">
+                    <input type="text" id="searchInput" placeholder="Cari menu atau informasi...">
+                    <div class="search-result" id="searchResult"></div>
+                </div>
+            </div>
+
+            <div class="weather-widget" id="weatherWidget">
+                <div class="weather-icon">
+                    <i id="weatherIcon" class="fa-solid fa-cloud-sun"></i>
+                </div>
+                <div class="weather-info">
+                    <span class="temp">
+                        <span id="temperature">--°C</span>
+                        <small id="weatherDescription" data-i18n="weather_loading">Memuat cuaca...</small>
+                    </span>
+                    <span class="location" data-i18n="weather_loc">Pemalang, Jawa Tengah</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <main class="main-content">
+        <!-- 1. BAGIAN JUDUL HALAMAN PUBLIKASI -->
+        <section class="page-header-section">
+            <div class="container">
+                <div class="badge-pill-modern animate-fade-down">
+                    <i class="fa-solid fa-newspaper"></i> Pusat Dokumentasi & Publikasi
+                </div>
+                <h1>Kanal Informasi & Warta Rimba</h1>
+                <p>Pusat akses artikel, siaran pers, buletin bulanan, serta wawasan pengelolaan kelestarian kawasan hutan Perhutani KPH Pemalang.</p>
+                
+                <!-- Tombol Navigasi Mengarah Langsung ke Konten Bawah -->
+                <div style="margin-top: 25px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                    <a href="#suara-rimba" style="background: #15803d; color: #fff; padding: 10px 22px; border-radius: 10px; font-weight: 700; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(21, 128, 61, 0.4);">
+                        <i class="fa-solid fa-tree"></i> Suara Rimba <i class="fa-solid fa-arrow-down" style="font-size: 0.8rem;"></i>
+                    </a>
+                    <a href="#pengumuman" style="background: rgba(255,255,255,0.08); color: #ccc; border: 1px solid rgba(255,255,255,0.15); padding: 10px 22px; border-radius: 10px; font-weight: 600; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-bullhorn"></i> Pengumuman <i class="fa-solid fa-arrow-down" style="font-size: 0.8rem;"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. SECTION SUARA RIMBA -->
+        <section id="suara-rimba" class="services-section" style="padding-top: 30px;">
+            <div class="container">
+                <div class="glass-card" style="padding: 35px; border-radius: 20px; border: 1px solid rgba(74, 222, 128, 0.25); background: rgba(13, 33, 21, 0.85); margin-bottom: 40px;">
+                    
+                    <!-- Header Suara Rimba -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; border-bottom: 2px solid rgba(74, 222, 128, 0.2); padding-bottom: 20px; margin-bottom: 30px;">
+                        <div>
+                            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(74, 222, 128, 0.1); border: 1px solid rgba(74, 222, 128, 0.3); padding: 4px 12px; border-radius: 15px; margin-bottom: 10px;">
+                                <i class="fa-solid fa-seedling" style="color: #4ade80; font-size: 0.8rem;"></i>
+                                <span style="color: #4ade80; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Rubrik Khusus</span>
+                            </div>
+                            <h2 style="font-size: 2rem; color: #fff; font-weight: 800; margin-bottom: 6px;">Suara Rimba</h2>
+                            <p style="color: #bbf7d0; font-size: 0.95rem; max-width: 750px; line-height: 1.6;">
+                                Berbagai kegiatan Perhutani dalam menjaga kelestarian hutan, memberdayakan masyarakat, serta membangun masa depan yang berkelanjutan melalui aksi nyata di lapangan.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Kategori Kegiatan Suara Rimba -->
+                    <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 15px; margin-bottom: 35px;" class="rimba-kategori-responsive">
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(74, 222, 128, 0.15); border-radius: 14px; padding: 15px; text-align: center;">
+                            <div style="width: 40px; height: 40px; background: rgba(74,222,128,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #4ade80; font-size: 1.1rem; margin: 0 auto 10px auto;">
+                                <i class="fa-solid fa-seedling"></i>
+                            </div>
+                            <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 2px;">Penanaman Pohon</h4>
+                            <p style="font-size: 0.7rem; color: #bbf7d0; margin: 0;">128 Kegiatan</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(74, 222, 128, 0.15); border-radius: 14px; padding: 15px; text-align: center;">
+                            <div style="width: 40px; height: 40px; background: rgba(74,222,128,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #4ade80; font-size: 1.1rem; margin: 0 auto 10px auto;">
+                                <i class="fa-solid fa-tree"></i>
+                            </div>
+                            <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 2px;">Konservasi Hutan</h4>
+                            <p style="font-size: 0.7rem; color: #bbf7d0; margin: 0;">86 Kegiatan</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(74, 222, 128, 0.15); border-radius: 14px; padding: 15px; text-align: center;">
+                            <div style="width: 40px; height: 40px; background: rgba(74,222,128,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #4ade80; font-size: 1.1rem; margin: 0 auto 10px auto;">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 2px;">Pemberdayaan</h4>
+                            <p style="font-size: 0.7rem; color: #bbf7d0; margin: 0;">64 Kegiatan</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(74, 222, 128, 0.15); border-radius: 14px; padding: 15px; text-align: center;">
+                            <div style="width: 40px; height: 40px; background: rgba(74,222,128,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #4ade80; font-size: 1.1rem; margin: 0 auto 10px auto;">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 2px;">Edukasi & Pelatihan</h4>
+                            <p style="font-size: 0.7rem; color: #bbf7d0; margin: 0;">52 Kegiatan</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(74, 222, 128, 0.15); border-radius: 14px; padding: 15px; text-align: center;">
+                            <div style="width: 40px; height: 40px; background: rgba(74,222,128,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #4ade80; font-size: 1.1rem; margin: 0 auto 10px auto;">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 2px;">Kemitraan</h4>
+                            <p style="font-size: 0.7rem; color: #bbf7d0; margin: 0;">41 Kegiatan</p>
+                        </div>
+                    </div>
+
+                    <!-- ISI KONTEN SUARA RIMBA -->
+                    <div style="display: grid; grid-template-columns: 2fr 1.3fr; gap: 30px; align-items: start;" class="rimba-grid-responsive">
+                        
+                        <!-- Kolom Kiri: Galeri Kegiatan Suara Rimba -->
+                        <div>
+                            <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+                                <i class="fa-solid fa-camera-retro" style="color: #4ade80;"></i> Galeri & Warta Rimba
+                            </h3>
+                            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px;" class="rimba-kategori-responsive">
+                                
+                                <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
+                                    <div style="position: relative; height: 150px;">
+                                        <img src="assets/rimba1.jpg" alt="Penanaman" style="width: 100%; height: 100%; object-fit: cover;">
+                                        <span style="position: absolute; top: 10px; left: 10px; background: rgba(13,33,21,0.85); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Penanaman</span>
+                                    </div>
+                                    <div style="padding: 14px; display: flex; flex-direction: column; flex-grow: 1;">
+                                        <div style="font-size: 0.7rem; color: #4ade80; margin-bottom: 5px;"><i class="fa-regular fa-calendar"></i> 02 Mei 2025</div>
+                                        <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3;">Perhutani Sosialisasikan Tanaman Tumpangsari ke KTH dan Pesanggem</h4>
+                                        <p style="font-size: 0.7rem; color: #bbf7d0; margin-top: auto; margin-bottom: 0;"><i class="fa-solid fa-location-dot" style="color: #4ade80;"></i> KPH Pemalang</p>
+                                    </div>
+                                </div>
+
+                                <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
+                                    <div style="position: relative; height: 150px;">
+                                        <img src="assets/rimba2.jpg" alt="Konservasi" style="width: 100%; height: 100%; object-fit: cover;">
+                                        <span style="position: absolute; top: 10px; left: 10px; background: rgba(13,33,21,0.85); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Konservasi</span>
+                                    </div>
+                                    <div style="padding: 14px; display: flex; flex-direction: column; flex-grow: 1;">
+                                        <div style="font-size: 0.7rem; color: #4ade80; margin-bottom: 5px;"><i class="fa-regular fa-calendar"></i> 11 September 2026</div>
+                                        <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3;">Perhutani Bina Pemungut Serasah Daun Jati untuk Jaga Kelestarian Hutan</h4>
+                                        <p style="font-size: 0.7rem; color: #bbf7d0; margin-top: auto; margin-bottom: 0;"><i class="fa-solid fa-location-dot" style="color: #4ade80;"></i> KPH Pemalang</p>
+                                    </div>
+                                </div>
+
+                                <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
+                                    <div style="position: relative; height: 150px;">
+                                        <img src="assets/rimba3.jpg" alt="Pemberdayaan" style="width: 100%; height: 100%; object-fit: cover;">
+                                        <span style="position: absolute; top: 10px; left: 10px; background: rgba(13,33,21,0.85); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Pemberdayaan</span>
+                                    </div>
+                                    <div style="padding: 14px; display: flex; flex-direction: column; flex-grow: 1;">
+                                        <div style="font-size: 0.7rem; color: #4ade80; margin-bottom: 5px;"><i class="fa-regular fa-calendar"></i> 17 September 2026</div>
+                                        <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3;">Perhutani KPH Pemalang Intensifkan Pemantauan Lapangan Jaga Keamanan Hutan</h4>
+                                        <p style="font-size: 0.7rem; color: #bbf7d0; margin-top: auto; margin-bottom: 0;"><i class="fa-solid fa-location-dot" style="color: #4ade80;"></i> KPH Pemalang</p>
+                                    </div>
+                                </div>
+
+                                <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
+                                    <div style="position: relative; height: 150px;">
+                                        <img src="assets/rimba4.jpg" alt="Edukasi" style="width: 100%; height: 100%; object-fit: cover;">
+                                        <span style="position: absolute; top: 10px; left: 10px; background: rgba(13,33,21,0.85); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Edukasi</span>
+                                    </div>
+                                    <div style="padding: 14px; display: flex; flex-direction: column; flex-grow: 1;">
+                                        <div style="font-size: 0.7rem; color: #4ade80; margin-bottom: 5px;"><i class="fa-regular fa-calendar"></i> 11 September 2026</div>
+                                        <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3;">Perhutani Tingkatkan Kesiapsiagaan Karhutla melalui Koordinasi Lintas Sektor</h4>
+                                        <p style="font-size: 0.7rem; color: #bbf7d0; margin-top: auto; margin-bottom: 0;"><i class="fa-solid fa-location-dot" style="color: #4ade80;"></i> KPH Pemalang</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Kolom Kanan: Dampak & Video Mars Rimbawan -->
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            
+                            <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 16px; padding: 20px;">
+                                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid rgba(74,222,128,0.2); padding-bottom: 8px;">
+                                    <i class="fa-solid fa-chart-line" style="color: #4ade80;"></i>
+                                    <h4 style="font-size: 0.95rem; font-weight: 700; color: #ffffff;">Dampak Kegiatan Rimba</h4>
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+                                    <div style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 10px; border: 1px solid rgba(74,222,128,0.15);">
+                                        <div style="font-size: 0.85rem; font-weight: 700; color: #fff;">350.000+</div>
+                                        <div style="font-size: 0.68rem; color: #bbf7d0;">Bibit Ditanam</div>
+                                    </div>
+                                    <div style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 10px; border: 1px solid rgba(74,222,128,0.15);">
+                                        <div style="font-size: 0.85rem; font-weight: 700; color: #fff;">1.250 Ha</div>
+                                        <div style="font-size: 0.68rem; color: #bbf7d0;">Area Lestari</div>
+                                    </div>
+                                    <div style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 10px; border: 1px solid rgba(74,222,128,0.15);">
+                                        <div style="font-size: 0.85rem; font-weight: 700; color: #fff;">45+</div>
+                                        <div style="font-size: 0.68rem; color: #bbf7d0;">Desa Binaan</div>
+                                    </div>
+                                    <div style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 10px; border: 1px solid rgba(74,222,128,0.15);">
+                                        <div style="font-size: 0.85rem; font-weight: 700; color: #fff;">12.500+</div>
+                                        <div style="font-size: 0.68rem; color: #bbf7d0;">Penerima Manfaat</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 16px; padding: 20px;">
+                                <h4 style="font-size: 0.95rem; font-weight: 700; color: #ffffff; margin-bottom: 10px;">Lagu Mars Rimbawan</h4>
+                                <a href="https://youtu.be/HPqk0CuBFpA?si=uzaNVnuilmve5lwB" target="_blank" style="text-decoration: none; display: block;">
+                                    <div style="position: relative; height: 130px; border-radius: 10px; overflow: hidden; margin-bottom: 10px; border: 1px solid rgba(74,222,128,0.2);">
+                                        <img src="assets/rimba5.jpg" alt="Video Background" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7);">
+                                        <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
+                                            <div style="width: 42px; height: 42px; background: rgba(74, 222, 128, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0d2115; font-size: 1rem;">
+                                                <i class="fa-solid fa-play" style="margin-left: 2px;"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p style="font-size: 0.72rem; color: #bbf7d0; margin-bottom: 10px; line-height: 1.4;">Lagu kebanggaan rimbawan Indonesia yang melambangkan semangat kerja dan dedikasi terhadap kelestarian hutan.</p>
+                                    <span style="background: #4ade80; color: #0d2115; padding: 6px 14px; border-radius: 8px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 6px;">
+                                        Tonton Video <i class="fa-solid fa-arrow-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SECTION PENGUMUMAN (DENGAN JUDUL JELAS DI ATASNYA) -->
+        <section id="pengumuman" class="services-section" style="padding-top: 10px; padding-bottom: 50px;">
+            <div class="container">
+                
+                <!-- Judul Bagian Pengumuman (Tampil Jelas) -->
+                <div style="margin-bottom: 30px; border-left: 4px solid #4ade80; padding-left: 15px;">
+                    <span style="color: #4ade80; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;">Pusat Informasi Publik</span>
+                    <h2 style="font-size: 1.8rem; font-weight: 800; color: #ffffff; margin-top: 4px;">Pengumuman & Tender Resmi</h2>
+                    <p style="color: #cbd5e1; font-size: 0.95rem; margin-top: 5px;">Informasi transparan mengenai kegiatan, pengadaan, dan kebijakan terkini Perhutani KPH Pemalang.</p>
+                </div>
+
+                <div class="content-grid-layout" style="margin-top: 0;">
+                    
+                    <!-- KOLOM KIRI (Daftar Pengumuman) -->
+                    <div class="announcement-main-column">
+                        
+                        <!-- List Item 1 -->
+                        <div class="announcement-card" style="padding: 24px; margin-bottom: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
+                            <div class="ann-img">
+                                <img src="assets/pengumuman1.jpg" alt="Lelang Terbuka">
+                                <div class="date-badge">
+                                    <span class="day" style="font-size: 1.4rem;">3</span>
+                                    <span class="month" style="font-size: 0.95rem;">Agustus 2026</span>
+                                </div>
+                            </div>
+                            <div class="ann-body">
+                                <h4 style="font-size: 1.25rem; line-height: 1.45; margin-bottom: 12px; color: #fff;">Lelang Terbuka Produk Non-Kayu Perhutani : Gondorukem, Terpentin, dan Derivat</h4>
+                                <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 15px; color: #cbd5e1;">Perum Perhutani secara berkala menyelenggarakan Lelang Terbuka Produk Non-Kayu yang meliputi Gondorukem, Terpentin, dan Produk Derivatnya (seperti Alpha Pinene dan Delta Carene). Penjualan komoditas unggulan hasil olahan getah pinus ini ditujukan bagi para pelaku usaha domestik maupun internasional.</p>
+                                <div class="ann-footer">
+                                    <span class="tag-label" style="font-size: 0.85rem; padding: 6px 14px;">Kegiatan</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- List Item 2 -->
+                        <div class="announcement-card" style="padding: 24px; margin-bottom: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
+                            <div class="ann-img">
+                                <img src="assets/pengumuman4.jpg" alt="Optimalisasi Aset">
+                                <div class="date-badge">
+                                    <span class="day" style="font-size: 1.4rem;">10</span>
+                                    <span class="month" style="font-size: 0.95rem;">Juni 2026</span>
+                                </div>
+                            </div>
+                            <div class="ann-body">
+                                <h4 style="font-size: 1.25rem; line-height: 1.45; margin-bottom: 12px; color: #fff;">Kerja Sama Optimalisasi Aset Tanah dan Bangunan Eks Kantor Unit III Perum Perhutani</h4>
+                                <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 15px; color: #cbd5e1;">Program Kerja Sama Optimalisasi Aset Tanah dan Bangunan Eks Kantor Unit III Perum Perhutani merupakan salah satu inisiatif strategis korporat untuk mendayagunakan aset tetap milik perusahaan yang berstatus idle agar menjadi lebih produktif.</p>
+                                <div class="ann-footer">
+                                    <span class="tag-label" style="font-size: 0.85rem; padding: 6px 14px;">Kebijakan</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- List Item 3 -->
+                        <div class="announcement-card" style="padding: 24px; margin-bottom: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
+                            <div class="ann-img">
+                                <img src="assets/pengumuman.jpg" alt="Kalender Kegiatan">
+                                <div class="date-badge">
+                                    <span class="day" style="font-size: 1.4rem;">18</span>
+                                    <span class="month" style="font-size: 0.95rem;">September 2025</span>
+                                </div>
+                            </div>
+                            <div class="ann-body">
+                                <h4 style="font-size: 1.25rem; line-height: 1.45; margin-bottom: 12px; color: #fff;">KALENDER KEGIATAN CORPORATE PERUM PERHUTANI TAHUN 2025</h4>
+                                <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 15px; color: #cbd5e1;">Dokumen resmi mengenai Kalender Kegiatan Corporate Perum Perhutani Tahun 2025 diterbitkan langsung oleh manajemen pusat untuk memetakan agenda kerja, sasaran mutu korporat, serta program kerja strategis.</p>
+                                <div class="ann-footer">
+                                    <span class="tag-label other" style="font-size: 0.85rem; padding: 6px 14px;">Lainnya</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- List Item 4 -->
+                        <div class="announcement-card" style="padding: 24px; margin-bottom: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
+                            <div class="ann-img">
+                                <img src="assets/pengumuman5.jpg" alt="Pengadaan Sewa Kendaraan">
+                                <div class="date-badge">
+                                    <span class="day" style="font-size: 1.4rem;">28</span>
+                                    <span class="month" style="font-size: 0.95rem;">Agustus 2025</span>
+                                </div>
+                            </div>
+                            <div class="ann-body">
+                                <h4 style="font-size: 1.25rem; line-height: 1.45; margin-bottom: 12px; color: #fff;">Pengadaan Sewa Kendaraan Dinas Operasional Polisi Hutan Perum Perhutani Tahun 2025</h4>
+                                <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 15px; color: #cbd5e1;">Perum Perhutani Kantor Pusat menyelenggarakan paket tender umum pascakualifikasi untuk Pengadaan Sewa Kendaraan Dinas Operasional Polisi Hutan Perum Perhutani Tahun 2025.</p>
+                                <div class="ann-footer">
+                                    <span class="tag-label prestasi" style="font-size: 0.85rem; padding: 6px 14px;">Prestasi</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- KOLOM KANAN (Sidebar Pengumuman) -->
+                    <div class="announcement-sidebar-column">
+
+                        <!-- Pengumuman Populer Widget -->
+                        <div class="sidebar-widget" style="padding: 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; margin-bottom: 20px;">
+                            <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 18px;"><i class="fa-solid fa-star" style="color: #facc15;"></i> Populer</h4>
+                            <div class="popular-item" style="margin-bottom: 18px; display: flex; gap: 12px; align-items: center;">
+                                <img src="assets/pengumuman2.jpg" alt="Populer 1" style="width: 70px; height: 60px; object-fit: cover; border-radius: 8px;">
+                                <div>
+                                    <h5 style="font-size: 0.9rem; line-height: 1.3; color: #fff; margin-bottom: 4px;">Tender Seleksi Terbuka Pengadaan Jasa Angkutan Kayu</h5>
+                                    <span class="pop-date" style="font-size: 0.75rem; color: #94a3b8;">11 Juni 2025</span>
+                                </div>
+                            </div>
+                            <div class="popular-item" style="display: flex; gap: 12px; align-items: center;">
+                                <img src="assets/pengumuman6.jpg" alt="Populer 2" style="width: 70px; height: 60px; object-fit: cover; border-radius: 8px;">
+                                <div>
+                                    <h5 style="font-size: 0.9rem; line-height: 1.3; color: #fff; margin-bottom: 4px;">Sasaran Mutu Korporat Tahun 2025</h5>
+                                    <span class="pop-date" style="font-size: 0.75rem; color: #94a3b8;">14 Maret 2025</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tender Seleksi Widget -->
+                        <div class="sidebar-widget calendar-widget" style="padding: 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
+                            <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 12px;">Tender Seleksi</h4>
+                            <div class="photo-widget-container" style="margin-top: 15px; height: 350px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); padding: 5px;">
+                                <img src="assets/pengumuman2.jpg" alt="Tender Seleksi" style="width: 100%; height: 100%; display: block; object-fit: contain;">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+  <footer class="footer-section">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-heading">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <h4>Kontak Kami</h4>
+                </div>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-user-tie"></i>Nama Administratur : Heri Nur Afandi, S.Hut, M.Si</li>
+                    <li><i class="fa-solid fa-phone"></i> (0284) 321617</li>
+                    <li><i class="fa-solid fa-envelope"></i> kphpemalang@perhutani.co.id</li>
+                    <li><i class="fa-solid fa-globe"></i> www.perhutani.co.id/kph-pemalang</li>
+                </ul>
+                <div class="social-links">
+                    <a href="https://twitter.com/your-perhutani" target="_blank" class="social-btn" title="Ikuti kami di X" style="background: #ffffff; color: #000000; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
+                        <svg style="width: 15px; height: 15px; fill: currentColor;" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/company/your-perhutani" target="_blank" class="social-btn" title="Ikuti kami di LinkedIn" style="background: #ffffff; color: #0a66c2; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://instagram.com" class="social-btn" title="Instagram" style="background: #ffffff; color: #e1306c; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://facebook.com" class="social-btn" title="Facebook" style="background: #ffffff; color: #1877f2; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://youtube.com" class="social-btn youtube" title="YouTube" style="background: #ffffff; color: #ff0000; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <a href="https://tiktok.com" class="social-btn tiktok" title="TikTok" style="background: #ffffff; color: #000000; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-heading">
+                    <i class="fa-solid fa-clock"></i>
+                    <h4>Jam Kerja</h4>
+                </div>
+                <ul class="schedule-list">
+                    <li>
+                        <span class="bullet active"></span>
+                        <div>
+                            <strong>Senin – Kamis</strong>
+                            <p>07.30 – 16.00 WIB</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="bullet active"></span>
+                        <div>
+                            <strong>Jumat</strong>
+                            <p>07.30 – 16.30 WIB</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="bullet"></span>
+                        <div>
+                            <strong>Sabtu – Minggu</strong>
+                            <p>Tutup</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-heading">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <h4>Lokasi Kantor</h4>
+                </div>
+                <p class="office-address">
+                    Perhutani KPH Pemalang<br>
+                    Jl. Jenderal Sudirman Timur No. 3,<br>
+                    Wanarejan Selatan, Pemalang,<br>
+                    Jawa Tengah 52311
+                </p>
+                <div class="embedded-map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.8252271891516!2d109.3976230758784!3d-6.895089867500139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fb9b95146c26b%3A0x6b0a88703a5b3a88!2sJl.%20Jend.%20Sudirman%20Timur%20No.3%2C%20Mulyoharjo%2C%20Kec.%20Pemalang%2C%20Kabupaten%20Pemalang%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+                        width="100%" 
+                        height="120" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Peta Lokasi Perhutani KPH Pemalang">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-heading">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                    <h4>Email & Layanan</h4>
+                </div>
+                <ul class="service-links-footer">
+                    <li>
+                        <i class="fa-solid fa-file-shield"></i>
+                        <div>
+                            <span>Laporan Pengaduan</span>
+                            <a href="mailto:pengaduan@perhutani.co.id">pengaduan@perhutani.co.id</a>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-circle-info"></i>
+                        <div>
+                            <span>Permohonan Informasi</span>
+                            <a href="mailto:informasi@perhutani.co.id">informasi@perhutani.co.id</a>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-building-shield"></i>
+                        <div>
+                            <span>PPID Perhutani</span>
+                            <a href="mailto:ppid@perhutani.co.id">ppid@perhutani.co.id</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="photo-wrapper-small" style="margin-top: 15px;">
+                    <div class="bumn-photo-card" style="background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
+                        <img src="assets/bumn.jpg" alt="BUMN untuk Negeri" style="width: 100%; height: auto; max-height: 90px; object-fit: contain; display: block;">
+                        <div class="photo-caption" style="padding: 10px;">
+                            <span class="tag-bumn" style="font-size: 0.65rem; background: #15803d; color: #fff; padding: 2px 6px; border-radius: 3px;">BUMN Hadir</span>
+                            <p style="font-size: 0.75rem; color: #ccc; margin-top: 4px;">Komitmen nyata untuk negeri.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <p>© 2026 Perum Perhutani KPH Pemalang. All Rights Reserved.</p>
+            <div class="policy-links">
+                <a href="#">Kebijakan Privasi</a>
+                <span>•</span>
+                <a href="#">Syarat & Ketentuan</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="imageModal" class="image-modal-overlay" onclick="closeFullImage()">
+        <button class="image-modal-close">&times;</button>
+        <img id="fullImageDisplay" src="" alt="Full Preview">
+    </div>
+
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <nav class="mobile-nav-drawer" id="mobileNavDrawer">
+        <div class="mobile-drawer-header">
+            <div class="mobile-brand">
+                <img src="assets/perhutanii.jpg" alt="Logo">
+                <span>KPH PEMALANG</span>
+            </div>
+            <button type="button" class="mobile-drawer-close" id="mobileDrawerClose">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="mobile-drawer-body">
+            <ul class="mobile-nav-list">
+                <li>
+                    <a href="index.html" class="mobile-link">
+                        <span><i class="fa-solid fa-house"></i>Beranda</span>
+                    </a>
+                </li>
+
+              <li>
+                   <a href="tentangkami.html" class="mobile-link">
+                        <span><i class="fa-solid fa-building"></i>Tentang Kami</span>
+                   </a>
+                </li>
+
+                <li>
+                    <a href="unitbisnis.html" class="mobile-link">
+                        <span><i class="fa-solid fa-briefcase"></i>Unit Bisnis</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="publikasi.html" class="mobile-link active">
+                        <span><i class="fa-solid fa-newspaper"></i>Publikasi</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="layanan.html" class="mobile-link">
+                        <span><i class="fa-solid fa-handshake-angle"></i>Layanan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="karir.html" class="mobile-link">
+                        <span><i class="fa-solid fa-user-tie"></i>Karir</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <script src="js/script.js"></script>
+</body>
+</html>

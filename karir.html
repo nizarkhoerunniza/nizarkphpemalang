@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhutani KPH Pemalang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+<style>
+    /* Styling Form Kirim Lamaran Langsung */
+    .direct-apply-box {
+        background: rgba(15, 35, 25, 0.7);
+        border: 1px solid rgba(74, 222, 128, 0.3);
+        border-radius: 16px;
+        padding: 30px;
+        margin-top: 40px;
+        backdrop-filter: blur(10px);
+    }
+    .form-group-custom {
+        margin-bottom: 20px;
+    }
+    .form-group-custom label {
+        display: block;
+        color: #e5e7eb;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+    .form-group-custom input,
+    .form-group-custom textarea {
+        width: 100%;
+        padding: 12px 16px;
+        background: #111827;
+        border: 1px solid #374151;
+        border-radius: 8px;
+        color: #fff;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 0.95rem;
+        transition: border-color 0.3s;
+    }
+    .form-group-custom input:focus,
+    .form-group-custom textarea:focus {
+        outline: none;
+        border-color: #4ade80;
+    }
+    .weather-widget {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+@media screen and (max-width: 950px) {
+    .weather-widget {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        padding: 3px 8px !important;
+        gap: 4px !important;
+        background: rgba(15, 35, 25, 0.85) !important;
+        border: 1px solid rgba(74, 222, 128, 0.4) !important;
+        border-radius: 12px !important;
+    }
+
+    .weather-widget span:not(.temp):not(.weather-icon),
+    .weather-widget div:not(.temp):not(.weather-icon),
+    .weather-widget p,
+    .weather-widget small {
+        display: none !important;
+    }
+
+    .weather-widget .weather-icon,
+    .weather-widget .temp {
+        display: inline-block !important;
+        visibility: visible !important;
+        font-size: 0.85rem !important;
+    }
+}
+</style>
+<header class="premium-header">
+    <div class="header-inner">
+        <a href="index.html" class="brand-premium">
+            <span class="brand-logo-ring">
+                <img src="assets/perhutanii.jpg" alt="Logo Perhutani">
+            </span>
+            <span class="brand-copy">
+                <strong>PERHUTANI</strong>
+                <small>KPH PEMALANG</small>
+            </span>
+        </a>
+
+        <nav class="premium-nav" aria-label="Navigasi utama">
+            <a href="index.html" class="premium-link">Beranda</a>
+            <a href="tentangkami.html" class="premium-link">Tentang Kami</a>  
+            <a href="unitbisnis.html" class="premium-link">Unit Bisnis</a>
+            <a href="publikasi.html" class="premium-link">Publikasi</a>
+            <a href="layanan.html" class="premium-link">Layanan</a>
+            <a href="karir.html" class="premium-link active">Karir</a>
+        </nav>
+
+        <div class="header-actions">
+            <button type="button" id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Buka Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="search-wrapper premium-search">
+                <button id="searchBtn" class="header-action" title="Cari">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <div class="search-box" id="searchBox">
+                    <input type="text" id="searchInput" placeholder="Cari menu atau informasi...">
+                    <div class="search-result" id="searchResult"></div>
+                </div>
+            </div>
+
+            <div class="weather-widget" id="weatherWidget">
+                <div class="weather-icon">
+                    <i id="weatherIcon" class="fa-solid fa-cloud-sun"></i>
+                </div>
+                <div class="weather-info">
+                    <span class="temp">
+                        <span id="temperature">--°C</span>
+                        <small id="weatherDescription" data-i18n="weather_loading">Memuat cuaca...</small>
+                    </span>
+                    <span class="location" data-i18n="weather_loc">Pemalang, Jawa Tengah</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="why-join-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2>Mengapa Berkarier di Perhutani?</h2>
+            <p>Kami menawarkan lebih dari sekadar pekerjaan—ini adalah wadah untuk bertumbuh dan berkontribusi nyata.</p>
+        </div>
+        <div class="benefit-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fa-solid fa-seedling"></i></div>
+                <h3>Dampak Nyata</h3>
+                <p>Setiap kontribusi Anda langsung berdampingan dengan kelestarian alam dan kesejahteraan masyarakat sekitar hutan.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fa-solid fa-users-gear"></i></div>
+                <h3>Pengembangan Profesional</h3>
+                <p>Lingkungan kerja kolaboratif dengan peluang pelatihan berkelanjutan untuk mengasah keahlian Anda.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fa-solid fa-balance-scale"></i></div>
+                <h3>Keseimbangan Kerja</h3>
+                <p>Budaya kerja yang menjunjung tinggi integritas, profesionalisme, dan kesejahteraan karyawan.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Lowongan / Informasi Rekrutmen -->
+<section class="vacancy-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2>Lowongan & Kesempatan</h2>
+            <p>Temukan posisi yang sesuai dengan keahlian dan semangat Anda.</p>
+        </div>
+        
+        <div class="vacancy-card-container">
+
+            <!-- Kartu Lowongan 2 (Contoh jika belum ada lowongan aktif) -->
+            <div class="vacancy-card empty-state">
+                <div class="vacancy-info text-center" style="width: 100%;">
+                    <i class="fa-solid fa-briefcase" style="font-size: 2.5rem; color: #4ade80; margin-bottom: 15px;"></i>
+                    <h3>Belum Ada Lowongan Aktif Saat Ini</h3>
+                    <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                        Kami selalu membuka diri bagi talenta-talenta berdedikasi tinggi. Silakan kirimkan CV dan portofolio Anda ke database talent kami untuk kesempatan di masa mendatang.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Kotak Form Kirim Lamaran Langsung di Web -->
+    <div class="direct-apply-box">
+        <div class="section-header text-center" style="margin-bottom: 20px;">
+            <h3 style="color: #4ade80; font-size: 1.3rem;"><i class="fa-solid fa-paper-plane"></i> Kirim Lamaran Cepat</h3>
+            <p style="font-size: 0.9rem; color: #9ca3af;">Isi data diri Anda di bawah ini, sistem akan otomatis merumuskan pesan lamaran siap kirim.</p>
+        </div>
+        
+        <form id="quickApplyForm" onsubmit="sendDirectEmail(event)">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+                <div class="form-group-custom">
+                    <label for="applicantName">Nama Lengkap</label>
+                    <input type="text" id="applicantName" placeholder="Contoh: Budi Santoso" required>
+                </div>
+                <div class="form-group-custom">
+                    <label for="applicantPosition">Posisi yang Dilamar</label>
+                    <input type="text" id="applicantPosition" value="Program Magang Generasi Hijau" required>
+                </div>
+            </div>
+
+            <div class="form-group-custom">
+                <label for="applicantEmail">Email Anda</label>
+                <input type="email" id="applicantEmail" placeholder="nama@email.com" required>
+            </div>
+
+            <div class="form-group-custom">
+                <label for="applicantMessage">Pesan / Motivasi Singkat</label>
+                <textarea id="applicantMessage" rows="4" placeholder="Tuliskan sedikit tentang latar belakang dan alasan Anda melamar..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary-custom" style="width: 100%; justify-content: center; border: none; cursor: pointer;">
+                <i class="fa-solid fa-envelope-circle-check"></i> Proses & Kirim ke Email Perhutani
+            </button>
+        </form>
+    </div>
+    <!-- Hero Section Karir dengan Foto -->
+<section class="career-hero">
+    <div class="career-hero-container">
+        <div class="career-hero-text">
+            <span class="badge-subtitle">KARIER DI PERHUTANI</span>
+            <h1 class="career-title">Bangun Masa Depan Hijau Bersama Kami</h1>
+            <p class="career-desc">
+                Bergabunglah dengan Perum Perhutani KPH Pemalang untuk mendedikasikan diri dalam pengelolaan sumber daya hutan yang lestari, inovatif, dan memberikan dampak positif bagi masyarakat serta lingkungan.
+            </p>
+        </div>
+        <div class="career-hero-image">
+            <div class="career-img-frame">
+                <!-- Anda bisa mengganti link Unsplash ini dengan foto lokal Anda, misal: assets/img/karir.jpg -->
+                <img src="assets/karir.jpg" alt="Tim Karir Perhutani" />
+            </div>
+        </div>
+    </div>
+</section>
+</section>
+   <footer class="footer-section">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-heading">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <h4>Kontak Kami</h4>
+                </div>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-user-tie"></i>Nama Administratur : Heri Nur Afandi, S.Hut, M.Si</li>
+                    <li><i class="fa-solid fa-phone"></i> (0284) 321617</li>
+                    <li><i class="fa-solid fa-envelope"></i> kphpemalang@perhutani.co.id</li>
+                    <li><i class="fa-solid fa-globe"></i> www.perhutani.co.id/kph-pemalang</li>
+                </ul>
+                <div class="social-links">
+                    <a href="https://twitter.com/your-perhutani" target="_blank" class="social-btn" title="Ikuti kami di X" style="background: #ffffff; color: #000000; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
+                        <svg style="width: 15px; height: 15px; fill: currentColor;" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/company/your-perhutani" target="_blank" class="social-btn" title="Ikuti kami di LinkedIn" style="background: #ffffff; color: #0a66c2; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://instagram.com" class="social-btn" title="Instagram" style="background: #ffffff; color: #e1306c; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://facebook.com" class="social-btn" title="Facebook" style="background: #ffffff; color: #1877f2; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://youtube.com" class="social-btn youtube" title="YouTube" style="background: #ffffff; color: #ff0000; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <a href="https://tiktok.com" class="social-btn tiktok" title="TikTok" style="background: #ffffff; color: #000000; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-heading">
+                    <i class="fa-solid fa-clock"></i>
+                    <h4>Jam Kerja</h4>
+                </div>
+                <ul class="schedule-list">
+                    <li>
+                        <span class="bullet active"></span>
+                        <div>
+                            <strong>Senin – Kamis</strong>
+                            <p>07.30 – 16.00 WIB</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="bullet active"></span>
+                        <div>
+                            <strong>Jumat</strong>
+                            <p>07.30 – 16.30 WIB</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="bullet"></span>
+                        <div>
+                            <strong>Sabtu – Minggu</strong>
+                            <p>Tutup</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-heading">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <h4>Lokasi Kantor</h4>
+                </div>
+                <p class="office-address">
+                    Perhutani KPH Pemalang<br>
+                    Jl. Jenderal Sudirman Timur No. 3,<br>
+                    Wanarejan Selatan, Pemalang,<br>
+                    Jawa Tengah 52311
+                </p>
+                <div class="embedded-map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.8252271891516!2d109.3976230758784!3d-6.895089867500139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fb9b95146c26b%3A0x6b0a88703a5b3a88!2sJl.%20Jend.%20Sudirman%20Timur%20No.3%2C%20Mulyoharjo%2C%20Kec.%20Pemalang%2C%20Kabupaten%20Pemalang%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+                        width="100%" 
+                        height="120" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Peta Lokasi Perhutani KPH Pemalang">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <div class="footer-heading">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                    <h4>Email & Layanan</h4>
+                </div>
+                <ul class="service-links-footer">
+                    <li>
+                        <i class="fa-solid fa-file-shield"></i>
+                        <div>
+                            <span>Laporan Pengaduan</span>
+                            <a href="mailto:pengaduan@perhutani.co.id">pengaduan@perhutani.co.id</a>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-circle-info"></i>
+                        <div>
+                            <span>Permohonan Informasi</span>
+                            <a href="mailto:informasi@perhutani.co.id">informasi@perhutani.co.id</a>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-building-shield"></i>
+                        <div>
+                            <span>PPID Perhutani</span>
+                            <a href="mailto:ppid@perhutani.co.id">ppid@perhutani.co.id</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="photo-wrapper-small" style="margin-top: 15px;">
+                    <div class="bumn-photo-card" style="background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
+                        <img src="assets/bumn.jpg" alt="BUMN untuk Negeri" style="width: 100%; height: auto; max-height: 90px; object-fit: contain; display: block;">
+                        <div class="photo-caption" style="padding: 10px;">
+                            <span class="tag-bumn" style="font-size: 0.65rem; background: #15803d; color: #fff; padding: 2px 6px; border-radius: 3px;">BUMN Hadir</span>
+                            <p style="font-size: 0.75rem; color: #ccc; margin-top: 4px;">Komitmen nyata untuk negeri.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <p>© 2026 Perum Perhutani KPH Pemalang. All Rights Reserved.</p>
+            <div class="policy-links">
+                <a href="#">Kebijakan Privasi</a>
+                <span>•</span>
+                <a href="#">Syarat & Ketentuan</a>
+            </div>
+        </div>
+    </footer>
+
+<!-- Modal Popup untuk Gambar Full -->
+<div id="imageModal" class="image-modal-overlay" onclick="closeFullImage()">
+    <button class="image-modal-close">&times;</button>
+    <img id="fullImageDisplay" src="" alt="Full Preview">
+</div>
+<div class="mobile-menu-overlay" id="mobileMenuOverlay">
+ </div>
+
+    <nav class="mobile-nav-drawer" id="mobileNavDrawer">
+        <div class="mobile-drawer-header">
+            <div class="mobile-brand">
+                <img src="assets/perhutanii.jpg" alt="Logo">
+                <span>KPH PEMALANG</span>
+            </div>
+            <button type="button" class="mobile-drawer-close" id="mobileDrawerClose">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="mobile-drawer-body">
+            <ul class="mobile-nav-list">
+                <li>
+                    <a href="index.html" class="mobile-link">
+                        <span><i class="fa-solid fa-house"></i>Beranda</span>
+                    </a>
+                </li>
+
+             
+                 <li>
+                    <a href="tentangkami.html" class="mobile-link">
+                        <span><i class="fa-solid fa-building"></i>Tentang Kami</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="unitbisnis.html" class="mobile-link">
+                        <span><i class="fa-solid fa-briefcase"></i>Unit Bisnis</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="publikasi.html" class="mobile-link">
+                        <span><i class="fa-solid fa-newspaper"></i>Publikasi</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="karir.html" class="mobile-link active">
+                        <span><i class="fa-solid fa-user-tie"></i>Karir</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <script src="js/script.js"></script>
+    </body>
+    </html>
