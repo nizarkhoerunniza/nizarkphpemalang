@@ -149,18 +149,15 @@
 
     /* TAMBAHAN KODE RESPONSIF KHUSUS LAYAR HP (360px / max-width: 768px) */
     @media screen and (max-width: 768px) {
-        /* Mengatur ulang grid section profil agar pas di layar kecil */
         #profil > div {
             grid-template-columns: 1fr !important;
             gap: 30px !important;
         }
 
-        /* Menyesuaikan tinggi foto pohon.jpg agar pas dan tidak terlalu panjang di HP 360px */
         #profil img[alt="Hutan Perhutani"] {
             height: 250px !important;
         }
 
-        /* Mengatur posisi card quote agar tetap estetis di bawah gambar */
         .profil-quote-card {
             position: relative !important;
             bottom: auto !important;
@@ -366,42 +363,46 @@
                 </div>
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                    <!-- Kartu 1: Pengelolaan Kayu & Non-Kayu → tab-kayu -->
                     <div class="forest-box" style="padding: 35px 30px;">
                         <div style="width: 55px; height: 55px; background: rgba(255, 255, 255, 0.1); color: #86efac; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 25px; border: 1px solid rgba(134, 239, 172, 0.35);">
                             <i class="fa-solid fa-tree"></i>
                         </div>
                         <h3 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 12px; font-weight: 700;" data-i18n="biz1_title">Pengelolaan Kayu & Non-Kayu</h3>
                         <p style="color: #e5e7eb; font-size: 0.9rem; line-height: 1.6; margin-bottom: 25px;" data-i18n="biz1_desc">Penyediaan produk hasil hutan berkualitas tinggi yang diproduksi secara legal, bertanggung jawab, dan ramah lingkungan.</p>
-                        <a href="kayu.html" style="color: #86efac; font-weight: 700; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; text-shadow: 0 0 8px rgba(134,239,172,0.4);">
+                        <a href="unitbisnis.html#tab-kayu" style="color: #86efac; font-weight: 700; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; text-shadow: 0 0 8px rgba(134,239,172,0.4);">
                             <span data-i18n="read_more">Selengkapnya</span> <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
                         </a>
                     </div>
 
+                    <!-- Kartu 2: Ekowisata & Jasa Lingkungan → tab-ekowisata -->
                     <div class="forest-box" style="padding: 35px 30px;">
                         <div style="width: 55px; height: 55px; background: rgba(255, 255, 255, 0.1); color: #86efac; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 25px; border: 1px solid rgba(134, 239, 172, 0.35);">
                             <i class="fa-solid fa-mountain-sun"></i>
                         </div>
                         <h3 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 12px; font-weight: 700;" data-i18n="biz2_title">Ekowisata & Jasa Lingkungan</h3>
                         <p style="color: #e5e7eb; font-size: 0.9rem; line-height: 1.6; margin-bottom: 25px;" data-i18n="biz2_desc">Destinasi wisata alam pegunungan dan hutan pinus asri yang menawarkan pengalaman rekreasi edukatif berwawasan lingkungan.</p>
-                        <a href="ekowisata.html" style="color: #86efac; font-weight: 700; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; text-shadow: 0 0 8px rgba(134,239,172,0.4);">
+                        <a href="unitbisnis.html#tab-ekowisata" style="color: #86efac; font-weight: 700; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; text-shadow: 0 0 8px rgba(134,239,172,0.4);">
                             <span data-i18n="read_more">Selengkapnya</span> <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
                         </a>
                     </div>
 
+                    <!-- Kartu 3: Kemitraan Masyarakat & Budidaya Herbal → tab-herbal -->
                     <div class="forest-box" style="padding: 35px 30px;">
                         <div style="width: 55px; height: 55px; background: rgba(255, 255, 255, 0.1); color: #86efac; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 25px; border: 1px solid rgba(134, 239, 172, 0.35);">
-                            <i class="fa-solid fa-hands-holding-child"></i>
+                            <i class="fa-solid fa-seedling"></i>
                         </div>
-                        <h3 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 12px; font-weight: 700;" data-i18n="biz3_title">Kemitraan Masyarakat</h3>
-                        <p style="color: #e5e7eb; font-size: 0.9rem; line-height: 1.6; margin-bottom: 25px;" data-i18n="biz3_desc">Pemberdayaan ekonomi melalui skema Perhutanan Sosial bersama LMDH demi kesejahteraan masyarakat sekitar kawasan hutan.</p>
-                        <a href="pengelolaanhutan.html" style="color: #86efac; font-weight: 700; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; text-shadow: 0 0 8px rgba(134,239,172,0.4);">
+                        <h3 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 12px; font-weight: 700;" data-i18n="biz3_title">Kemitraan Masyarakat & Budidaya Herbal</h3>
+                        <p style="color: #e5e7eb; font-size: 0.9rem; line-height: 1.6; margin-bottom: 25px;" data-i18n="biz3_desc">Pemberdayaan ekonomi masyarakat desa hutan melalui program budidaya tanaman obat dan herbal produktif di bawah naungan Perhutanan Sosial.</p>
+                        <a href="unitbisnis.html#tab-herbal" style="color: #86efac; font-weight: 700; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; text-shadow: 0 0 8px rgba(134,239,172,0.4);">
                             <span data-i18n="read_more">Selengkapnya</span> <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
                         </a>
                     </div>
                 </div>
             </div>
         </section>
-            <!-- Publikasi Terbaru Section -->
+
+        <!-- Publikasi Terbaru Section -->
         <section style="max-width: 1200px; margin: 80px auto; padding: 0 5%;">
             <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; flex-wrap: wrap; gap: 20px;">
                 <div>
@@ -425,7 +426,7 @@
                         </div>
                         <h3 style="font-size: 1.2rem; color: #ffffff; margin-bottom: 12px; font-weight: 700; line-height: 1.4;" data-i18n="news1_title">Gerakan Penanaman Pohon Bersama LMDH dan Stakeholder</h3>
                         <p style="color: #e5e7eb; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="news1_desc">Perhutani KPH Pemalang melaksanakan kegiatan penanaman bersama guna memperkuat daya dukung daerah aliran sungai dan kelestarian ekosistem...</p>
-                        <a href="suararimba.html" style="color: #86efac; font-weight: 700; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; text-shadow: 0 0 8px rgba(134,239,172,0.4);">
+                        <a href="publikasi.html#tab-suararimba" style="color: #86efac; font-weight: 700; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; text-shadow: 0 0 8px rgba(134,239,172,0.4);">
                             <span data-i18n="read_news">Baca Selengkapnya</span> <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
                         </a>
                     </div>
@@ -442,7 +443,7 @@
                         </div>
                         <h3 style="font-size: 1.2rem; color: #ffffff; margin-bottom: 12px; font-weight: 700; line-height: 1.4;" data-i18n="news2_title">Peningkatan Fasilitas Kenyamanan Pengunjung Destinasi Wisata</h3>
                         <p style="color: #e5e7eb; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;" data-i18n="news2_desc">Menyambut liburan akhir pekan, kawasan wisata kelolaan mempercantik fasilitas spot swafoto dan area istirahat demi kenyamanan wisatawan...</p>
-                        <a href="suararimba.html" style="color: #86efac; font-weight: 700; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; text-shadow: 0 0 8px rgba(134,239,172,0.4);">
+                        <a href="publikasi.html#tab-suararimba" style="color: #86efac; font-weight: 700; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; text-shadow: 0 0 8px rgba(134,239,172,0.4);">
                             <span data-i18n="read_news">Baca Selengkapnya</span> <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
                         </a>
                     </div>
