@@ -3,222 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perhutani KPH Pemalang - Unit Bisnis</title>
+    <title>Perhutani KPH Pemalang - Publikasi</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="css/style3.css">
-    <style>
+<style>
+    /* Smooth Scroll */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Responsif untuk HP Android / Layar Kecil (Portrait) */
+    @media screen and (max-width: 768px) {
+        .services-section .container,
+        .page-header-section .container {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
+
+        .glass-card {
+            padding: 15px !important;
+        }
+
+        .page-header-section h1 {
+            font-size: 1.6rem !important;
+        }
+
+        .rimba-grid-responsive {
+            grid-template-columns: 1fr !important;
+        }
+
+        .rimba-kategori-responsive {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        }
+
+        .content-grid-layout {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 20px !important;
+            padding: 0 10px !important;
+        }
+
+        .announcement-card {
+            flex-direction: column !important;
+            padding: 15px !important;
+        }
+
+        .announcement-card .ann-img {
+            width: 100% !important;
+            height: 180px !important;
+        }
+
+        .announcement-card .ann-img img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+        }
+
+        .announcement-sidebar-column {
+            position: static !important;
+        }
+    }
+
+    /* Sticky sidebar kanan di desktop */
+    @media screen and (min-width: 993px) {
+        .announcement-sidebar-column {
+            position: sticky;
+            top: 100px;
+            align-self: start;
+            height: fit-content;
+        }
+    }
+
+    /* Sinkronisasi Widget Cuaca */
+    .weather-widget {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 6px 12px;
+        border-radius: 10px;
+    }
+    
+    @media screen and (max-width: 950px) {
         .weather-widget {
             display: flex !important;
-            align-items: center !important;
-            gap: 8px !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            padding: 3px 8px !important;
+            gap: 4px !important;
+            background: rgba(15, 35, 25, 0.85) !important;
+            border: 1px solid rgba(74, 222, 128, 0.4) !important;
+            border-radius: 12px !important;
         }
-
-        @media screen and (max-width: 950px) {
-            .weather-widget {
-                display: flex !important;
-                visibility: visible !important;
-                opacity: 1 !important;
-                padding: 3px 8px !important;
-                gap: 4px !important;
-                background: rgba(15, 35, 25, 0.85) !important;
-                border: 1px solid rgba(74, 222, 128, 0.4) !important;
-                border-radius: 12px !important;
-            }
-
-            .weather-widget span:not(.temp):not(.weather-icon),
-            .weather-widget div:not(.temp):not(.weather-icon),
-            .weather-widget p,
-            .weather-widget small {
-                display: none !important;
-            }
-
-            .weather-widget .weather-icon,
-            .weather-widget .temp {
-                display: inline-block !important;
-                visibility: visible !important;
-                font-size: 0.85rem !important;
-            }
+        .weather-widget span:not(.temp):not(.weather-icon),
+        .weather-widget div:not(.temp):not(.weather-icon),
+        .weather-widget p,
+        .weather-widget small {
+            display: none !important;
         }
-
-        /* Grid Produk: Pastikan pas 3 kolom (3 Atas, 3 Bawah) */
-        .herbal-products-grid {
-            display: grid !important;
-            grid-template-columns: repeat(3, 1fr) !important;
-            gap: 20px !important;
-            width: 100% !important;
+        .weather-widget .weather-icon,
+        .weather-widget .temp {
+            display: inline-block !important;
+            visibility: visible !important;
+            font-size: 0.85rem !important;
         }
+    }
 
-        /* Hero Banner */
-        .herbal-hero-banner {
-            position: relative;
-            overflow: hidden;
-            background: #f4f9f4;
-            border-bottom: 3px solid #15803d;
-            padding: 60px 20px;
-            color: #1e293b;
-        }
+    .weather-icon {
+        font-size: 1.2rem;
+        color: #facc15; 
+        flex-shrink: 0; 
+    }
 
-        .hero-layout-flex {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-        }
+    .weather-info {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+    }
 
-        .hero-content-left {
-            flex: 1;
-            text-align: left;
-        }
+    .weather-info .temp {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #fff;
+    }
 
-        .hero-content-left h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            line-height: 1.15;
-            color: #0f172a;
-            margin-bottom: 8px;
-        }
-
-        .hero-content-left h1 span.highlight-green {
-            color: #15803d;
-            display: block;
-        }
-
-        .hero-content-left .hero-subtitle-text {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #b45309;
-            margin-bottom: 20px;
-        }
-
-        .hero-content-left .hero-desc-text {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #475569;
-            margin-bottom: 0;
-        }
-
-        .hero-image-right {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .hero-image-card {
-            width: 100%;
-            max-width: 540px;
-            height: 360px;
-            overflow: hidden;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            border-radius: 180px 24px 24px 24px;
-        }
-
-        .hero-image-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Tab Content Control */
-        .unit-tab-content {
-            display: none;
-        }
-        .unit-tab-content.active {
-            display: block;
-        }
-
-        .cat-pill {
-            cursor: pointer;
-        }
-
-        html, body {
-            max-width: 100% !important;
-            overflow-x: hidden !important;
-            box-sizing: border-box !important;
-        }
-
-        *, *:before, *:after {
-            box-sizing: border-box !important;
-        }
-
-        /* Sticky sidebar di desktop agar tidak ada ruang kosong menggantung */
-        @media screen and (min-width: 993px) {
-            .announcement-sidebar-column {
-                position: sticky;
-                top: 100px;
-                align-self: start;
-                height: fit-content;
-            }
-        }
-
-        @media screen and (max-width: 992px) {
-            .herbal-products-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .hero-layout-flex {
-                flex-direction: column !important;
-                gap: 20px !important;
-            }
-            .hero-content-left h1 {
-                font-size: 2rem !important;
-            }
-            .content-grid-layout {
-                display: flex !important;
-                flex-direction: column !important;
-                width: 100% !important;
-                padding: 0 12px !important;
-                gap: 20px !important;
-                margin: 0 !important;
-            }
-
-            .announcement-main-column, 
-            .announcement-sidebar-column {
-                width: 100% !important;
-                max-width: 100% !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                position: static !important;
-            }
-
-            .herbal-products-grid {
-                display: flex !important;
-                flex-direction: row !important;
-                overflow-x: auto !important;
-                scroll-snap-type: x mandatory !important;
-                gap: 15px !important;
-                padding: 10px 4px 20px 4px !important;
-                width: 100% !important;
-                margin: 0 !important;
-                scrollbar-width: thin; 
-            }
-
-            .product-card, .announcement-card {
-                flex: 0 0 80% !important;
-                max-width: 280px !important;
-                scroll-snap-align: start !important;
-                margin: 0 !important;
-            }
-        }
-
-        .premium-header {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            z-index: 9999 !important;
-            background: rgba(11, 23, 17, 0.88) !important;
-            backdrop-filter: blur(18px);
-            border-bottom: 1px solid rgba(134, 239, 172, 0.25);
-        }
-    </style>
+    .weather-info .location {
+        font-size: 0.7rem;
+        color: #94a3b8;
+    }
+</style>
 </head>
 <body>
 <header class="premium-header">
@@ -236,8 +153,8 @@
         <nav class="premium-nav" aria-label="Navigasi utama">
             <a href="index.html" class="premium-link">Beranda</a>
             <a href="tentangkami.html" class="premium-link">Tentang Kami</a>  
-            <a href="unitbisnis.html" class="premium-link active">Unit Bisnis</a>
-            <a href="publikasi.html" class="premium-link">Publikasi</a>
+            <a href="unitbisnis.html" class="premium-link">Unit Bisnis</a>
+            <a href="publikasi.html" class="premium-link active">Publikasi</a>
             <a href="layanan.html" class="premium-link">Layanan</a>
             <a href="karir.html" class="premium-link">Karir</a>
         </nav>
@@ -273,830 +190,601 @@
     </div>
 </header>
 
-<main class="main-content" style="padding-top: 80px;">
-    <!-- Judul Asli Halaman Unit Bisnis -->
-    <section class="page-header-section">
-        <div class="container">
-            <h1>Unit Bisnis Kami</h1>
-            <p>Pilar lini usaha kehutanan yang dikelola secara berkelanjutan untuk memberikan dampak positif bagi ekonomi, sosial, dan lingkungan.</p>
-        </div>
-    </section>
-
-    <!-- Content Grid Section -->
-    <div class="content-grid-layout" style="margin-top: 30px;">
-        
-        <div class="announcement-main-column">
-            <!-- Navigation Category Pills -->
-            <div class="herbal-category-scroll">
-                <button type="button" class="cat-pill active" onclick="switchTab('herbal', this)">
-                    <i class="fa-solid fa-mug-hot"></i>Herbal
-                </button>
-                <button type="button" class="cat-pill" onclick="switchTab('kayu', this)">
-                    <i class="fa-solid fa-cubes"></i>Kayu
-                </button>
-                <button type="button" class="cat-pill" onclick="switchTab('nonkayu', this)">
-                    <i class="fa-solid fa-box-open"></i>Nonkayu
-                </button>
-                <button type="button" class="cat-pill" onclick="switchTab('ekowisata', this)">
-                    <i class="fa-solid fa-mountain"></i>Ekowisata
-                </button>
-            </div>
-
-            <!-- TAB 1: HERBAL -->
-            <div id="tab-herbal" class="unit-tab-content active">
-                <div class="section-filter-bar">
-                    <h3 class="section-title"><i class="fa-solid fa-leaf"></i> Produk Herbal & Obat Tradisional</h3>
-                    <div class="header-buttons">
-                    </div>
+    <main class="main-content">
+        <!-- 1. BAGIAN JUDUL HALAMAN PUBLIKASI -->
+        <section class="page-header-section">
+            <div class="container">
+                <div class="badge-pill-modern animate-fade-down">
+                    <i class="fa-solid fa-newspaper"></i> Pusat Dokumentasi & Publikasi
                 </div>
-
-                <div class="herbal-products-grid">
-                    <!-- Produk 1 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/kayuputih.jpg" alt="Kayu Putih">
-                            <span class="product-badge">Kayu Putih</span>
-                        </div>
-                        <div class="ann-body">
-                            <h4>Kayu Putih</h4>
-                            <p><b>Pengenalan : </b>Kayu putih adalah tanaman pohon menahun dari suku jambu-jambuan (Myrtaceae) yang daunnya populer diolah menjadi minyak gosok tradisional.<br><b>Ciri-ciri : </b>Kulit batang berwarna putih keabu-abuan berlapis gabus yang mudah mengelupas, serta memiliki daun berbentuk lanset yang beraroma khas saat diremas.<br><b>Fungsi : </b>Melegakan pernapasan, menghangatkan tubuh, dan mengurangi nyeri otot.</p>
-                            <div class="product-price">Rp 45.000</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.7 (64)</span>
-                        </div>
-                    </div>
-
-                    <!-- Produk 2 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/maduperhutani.jpg" alt="Madu">
-                            <span class="product-badge">Madu</span>
-                        </div>
-                        <div class="ann-body">
-                            <h4>Madu Kualitas Terbaik</h4>
-                            <p><b>Pengenalan : </b>Madu adalah cairan kental alami berwarna kuning keemasan hingga cokelat.<br><b>Ciri-ciri : </b>Cairan ini berwarna kuning keemasan hingga cokelat gelap, bertekstur kental dan lengket, beraroma khas flora, serta tidak mudah membusuk karena kadar airnya yang sangat rendah.<br><b>Fungsi : </b>Meningkatkan imun dan stamina serta meredakan batuk, mencegah penuaan dini, serta menjadi sumber energi instan dan pengganti gula pasir yang sehat.</p>
-                            <div class="product-price">Rp 50.000</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.8 (52)</span>
-                        </div>
-                    </div>
-
-                    <!-- Produk 3 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/sereh.jpg" alt="Serai Wangi">
-                            <span class="product-badge">Serai Wangi</span>
-                        </div>
-                        <div class="ann-body">
-                            <h4>Serai Wangi</h4>
-                            <p><b>Pengenalan : </b>Serai wangi adalah tanaman rumput-rumputan menahun yang menghasilkan minyak atsiri (sitronela) beraroma lemon tajam.<br><b>Ciri-ciri : </b>Tanaman ini tumbuh membentuk rumpun lebat, memiliki daun pipih panjang berwarna hijau muda dengan tepi kasar, serta mengeluarkan aroma wangi yang kuat saat daunnya diremas.<br><b>Fungsi : </b>Memberikan efek tenang, meredakan flu, dan mengurangi kembung, minyak pijat pereda nyeri sendi, aromaterapi penenang stres.</p>
-                            <div class="product-price">Rp 40.000</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.6 (41)</span>
-                        </div>
-                    </div>
-
-                    <!-- Produk 4 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/jahe.jpg" alt="Jahe">
-                            <span class="product-badge">Jahe</span>
-                        </div>
-                        <div class="ann-body">
-                            <h4>Jahe</h4>
-                            <p><b>Pengenalan : </b>Jahe adalah tanaman rimpang populer yang digunakan sebagai bumbu dapur, bahan minuman hangat, dan tanaman obat tradisional.<br><b>Ciri-ciri : </b>Tanaman ini memiliki rimpang berbuku-buku di dalam tanah dengan aroma pedas khas, batang semu setinggi 30–100 cm, dan daun menyirip panjang.<br><b>Manfaat:</b> Menghangatkan badan, meredakan mual, nyeri otot, meringankan radang sendi, meredakan batuk/pilek, serta meningkatkan sistem kekebalan tubuh.</p>
-                            <div class="product-price">Rp 48.000</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.9 (88)</span>
-                        </div>
-                    </div>
-
-                    <!-- Produk 5 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/kapulaga.jpg" alt="Kapulaga">
-                            <span class="product-badge">Kapulaga</span>
-                        </div>
-                        <div class="ann-body">
-                            <h4>Kapulaga</h4>
-                            <p><b>Pengenalan : </b>Kapulaga adalah tanaman rempah berbentuk rimpang dari keluarga jahe-jahean (Zingiberaceae) yang menjadi salah satu rempah termahal di dunia.<br><b>Ciri-ciri : </b>Tanaman ini tumbuh berumpun mirip lengkuas, memiliki buah berbentuk bulat telur berongga yang berkerumun di pangkal batang, dan bijinya berwarna hitam kecil dengan aroma wangi yang sangat kuat.<br><b>Fungsi : </b> Membantu menurunkan tekanan darah & melancarkan pencernaan.</p>
-                            <div class="product-price">Rp 55.000</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.9 (110)</span>
-                        </div>
-                    </div>
-
-                    <!-- Produk 6 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/kunyit.jpg" alt="Kunyit">
-                            <span class="product-badge">Kunyit</span>
-                        </div>
-                        <div class="ann-body">
-                            <h4>Kunyit</h4>
-                            <p><b>Pengenalan : </b>Kunyit adalah tanaman rempah dan obat asli Asia Tenggara dari suku jahe-jahean (Zingiberaceae) yang sering digunakan sebagai bumbu masakan, pewarna alami, dan jamu tradisional.<br><b>Ciri-ciri :</b>Memiliki rimpang akar bagian dalam berwarna kuning oranye cerah, tekstur kulit luar bersisik cokelat muda, serta berdaun lebar lonjong berwarna hijau tua.<br><b>Manfaat:</b> Antiradang dan meningkatkan daya tahan tubuh, dan menjaga kesehatan pencernaan.</p>
-                            <div class="product-price">Rp 42.000</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.7 (35)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Keunggulan Box Herbal -->
-                <div class="herbal-features-box">
-                    <h4><i class="fa-solid fa-circle-question"></i> Mengapa Memilih Herbal Perhutani?</h4>
-                    <div class="features-grid">
-                        <div class="feature-item">
-                            <div class="feat-icon"><i class="fa-solid fa-seedling"></i></div>
-                            <h5>Alami & Aman</h5>
-                            <p>Tanpa bahan kimia berbahaya, aman untuk dikonsumsi.</p>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feat-icon"><i class="fa-solid fa-flask"></i></div>
-                            <h5>Riset & Inovasi</h5>
-                            <p>Dikembangkan melalui riset untuk manfaat optimal.</p>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feat-icon"><i class="fa-solid fa-hands-holding-child"></i></div>
-                            <h5>Dukungan Lokal</h5>
-                            <p>Memberdayakan masyarakat sekitar hutan.</p>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feat-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-                            <h5>Untuk Generasi Sehat</h5>
-                            <p>Mendukung gaya hidup sehat secara alami.</p>
-                        </div>
-                    </div>
+                <h1>Kanal Informasi & Warta Rimba</h1>
+                <p>Pusat akses artikel, siaran pers, buletin bulanan, serta wawasan pengelolaan kelestarian kawasan hutan Perhutani KPH Pemalang.</p>
+                
+                <!-- Tombol Navigasi Mengarah Langsung ke Konten Bawah -->
+                <div style="margin-top: 25px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                    <a href="#suara-rimba" style="background: #15803d; color: #fff; padding: 10px 22px; border-radius: 10px; font-weight: 700; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(21, 128, 61, 0.4);">
+                        <i class="fa-solid fa-tree"></i> Suara Rimba <i class="fa-solid fa-arrow-down" style="font-size: 0.8rem;"></i>
+                    </a>
+                    <a href="#pengumuman" style="background: rgba(255,255,255,0.08); color: #ccc; border: 1px solid rgba(255,255,255,0.15); padding: 10px 22px; border-radius: 10px; font-weight: 600; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-bullhorn"></i> Pengumuman <i class="fa-solid fa-arrow-down" style="font-size: 0.8rem;"></i>
+                    </a>
                 </div>
             </div>
+        </section>
 
-            <!-- TAB 2: KAYU -->
-            <div id="tab-kayu" class="unit-tab-content">
-                <div class="section-filter-bar">
-                    <h3 class="section-title"><i class="fa-solid fa-cubes"></i> Produk Kayu Berkualitas Tinggi</h3>
-                    <div class="header-buttons">
-                    </div>
-                </div>
-
-                <div class="herbal-products-grid">
-                    <!-- Produk Kayu 1 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/kayubalsa.jpg" alt="Kayu Balsa">
-                            <span class="product-badge">Kayu Balsa</span>
-                        </div>
-                        <div class="ann-body">
-                            <h4>Kayu Balsa</h4>
-                            <p><b>Pengenalan : </b>Kayu balsa adalah kayu komersial produksi Perum Perhutani dari jenis pohon yang tumbuh sangat cepat.<br><b>Ciri-ciri : </b> Bobotnya sangat ringan, berwarna putih cerah/keemasan, sangat mudah dipotong.<br><b>Fungsi : </b> Bahan maket, aeromodelling, papan selancar, serta material inti kapal.</p>
-                            <div class="product-price">Rp 1.000.000 – Rp 1.500.000 / m³</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 5.0 (48)</span>
+        <!-- 2. SECTION SUARA RIMBA -->
+        <section id="suara-rimba" class="services-section" style="padding-top: 30px;">
+            <div class="container">
+                <div class="glass-card" style="padding: 35px; border-radius: 20px; border: 1px solid rgba(74, 222, 128, 0.25); background: rgba(13, 33, 21, 0.85); margin-bottom: 40px;">
+                    
+                    <!-- Header Suara Rimba -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; border-bottom: 2px solid rgba(74, 222, 128, 0.2); padding-bottom: 20px; margin-bottom: 30px;">
+                        <div>
+                            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(74, 222, 128, 0.1); border: 1px solid rgba(74, 222, 128, 0.3); padding: 4px 12px; border-radius: 15px; margin-bottom: 10px;">
+                                <i class="fa-solid fa-seedling" style="color: #4ade80; font-size: 0.8rem;"></i>
+                                <span style="color: #4ade80; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Rubrik Khusus</span>
+                            </div>
+                            <h2 style="font-size: 2rem; color: #fff; font-weight: 800; margin-bottom: 6px;">Suara Rimba</h2>
+                            <p style="color: #bbf7d0; font-size: 0.95rem; max-width: 750px; line-height: 1.6;">
+                                Berbagai kegiatan Perhutani dalam menjaga kelestarian hutan, memberdayakan masyarakat, serta membangun masa depan yang berkelanjutan melalui aksi nyata di lapangan.
+                            </p>
                         </div>
                     </div>
 
-                    <!-- Produk Kayu 2 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/kayujati.jpg" alt="Kayu Jati">
-                            <span class="product-badge">Kayu Jati</span>
+                    <!-- Kategori Kegiatan Suara Rimba -->
+                    <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 15px; margin-bottom: 35px;" class="rimba-kategori-responsive">
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(74, 222, 128, 0.15); border-radius: 14px; padding: 15px; text-align: center;">
+                            <div style="width: 40px; height: 40px; background: rgba(74,222,128,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #4ade80; font-size: 1.1rem; margin: 0 auto 10px auto;">
+                                <i class="fa-solid fa-seedling"></i>
+                            </div>
+                            <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 2px;">Penanaman Pohon</h4>
+                            <p style="font-size: 0.7rem; color: #bbf7d0; margin: 0;">128 Kegiatan</p>
                         </div>
-                        <div class="ann-body">
-                            <h4>Kayu Jati</h4>
-                            <p><b>Pengenalan : </b>Kayu jati adalah kayu kualitas premium Perhutani dengan usia tebang tua (40-80 tahun).<br><b>Ciri-ciri : </b> Serat padat, cokelat keemasan, mengandung minyak alami penangkal rayap.<br><b>Fungsi : </b> Bahan utama furnitur mewah, konstruksi bangunan, dan lantai kayu.</p>
-                            <div class="product-price">Rp 7.000.000 – Rp 20.000.000+ / m³</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.8 (36)</span>
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(74, 222, 128, 0.15); border-radius: 14px; padding: 15px; text-align: center;">
+                            <div style="width: 40px; height: 40px; background: rgba(74,222,128,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #4ade80; font-size: 1.1rem; margin: 0 auto 10px auto;">
+                                <i class="fa-solid fa-tree"></i>
+                            </div>
+                            <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 2px;">Konservasi Hutan</h4>
+                            <p style="font-size: 0.7rem; color: #bbf7d0; margin: 0;">86 Kegiatan</p>
                         </div>
-                    </div>
-
-                    <!-- Produk Kayu 3 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/kayumahoni.jpg" alt="Kayu Mahoni">
-                            <span class="product-badge">Kayu Mahoni</span>
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(74, 222, 128, 0.15); border-radius: 14px; padding: 15px; text-align: center;">
+                            <div style="width: 40px; height: 40px; background: rgba(74,222,128,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #4ade80; font-size: 1.1rem; margin: 0 auto 10px auto;">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 2px;">Pemberdayaan</h4>
+                            <p style="font-size: 0.7rem; color: #bbf7d0; margin: 0;">64 Kegiatan</p>
                         </div>
-                        <div class="ann-body">
-                            <h4>Kayu Mahoni</h4>
-                            <p><b>Pengenalan : </b>Kayu mahoni adalah kayu alternatif premium pengganti jati yang lebih ekonomis.<br><b>Ciri-ciri : </b> Warna merah muda ke kecokelatan, serat lurus, dan stabil.<br><b>Fungsi : </b> Ideal untuk bahan furnitur dengan finishing cat duco putih atau cerah.</p>
-                            <div class="product-price">Rp 4.000.000 – Rp 6.500.000 / m³</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.9 (29)</span>
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(74, 222, 128, 0.15); border-radius: 14px; padding: 15px; text-align: center;">
+                            <div style="width: 40px; height: 40px; background: rgba(74,222,128,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #4ade80; font-size: 1.1rem; margin: 0 auto 10px auto;">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 2px;">Edukasi & Pelatihan</h4>
+                            <p style="font-size: 0.7rem; color: #bbf7d0; margin: 0;">52 Kegiatan</p>
                         </div>
-                    </div>
-
-                    <!-- Produk Kayu 4 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/kayumerbau.jpg" alt="Kayu Merbau">
-                            <span class="product-badge">Kayu Merbau</span>
-                        </div>
-                        <div class="ann-body">
-                            <h4>Kayu Merbau</h4>
-                            <p><b>Pengenalan : </b>Kayu Merbau adalah kayu keras berkualitas tinggi (dijuluki kayu besi).<br><b>Ciri-ciri : </b> Teras cokelat kemerahan hingga hampir hitam, sangat keras.<br><b>Fungsi : </b> Konstruksi luar ruangan (decking), parket lantai, dan kusen.</p>
-                            <div class="product-price"> Rp 12.000.000 – Rp 15.500.000 / m³</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.7 (50)</span>
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(74, 222, 128, 0.15); border-radius: 14px; padding: 15px; text-align: center;">
+                            <div style="width: 40px; height: 40px; background: rgba(74,222,128,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #4ade80; font-size: 1.1rem; margin: 0 auto 10px auto;">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 2px;">Kemitraan</h4>
+                            <p style="font-size: 0.7rem; color: #bbf7d0; margin: 0;">41 Kegiatan</p>
                         </div>
                     </div>
 
-                    <!-- Produk Kayu 5 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/kayupinus.jpg" alt="Kayu Pinus">
-                            <span class="product-badge">Kayu Pinus</span>
+                    <!-- ISI KONTEN SUARA RIMBA -->
+                    <div style="display: grid; grid-template-columns: 2fr 1.3fr; gap: 30px; align-items: start;" class="rimba-grid-responsive">
+                        
+                        <!-- Kolom Kiri: Galeri Kegiatan Suara Rimba -->
+                        <div>
+                            <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+                                <i class="fa-solid fa-camera-retro" style="color: #4ade80;"></i> Galeri & Warta Rimba
+                            </h3>
+                            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px;" class="rimba-kategori-responsive">
+                                
+                                <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
+                                    <div style="position: relative; height: 150px;">
+                                        <img src="assets/rimba1.jpg" alt="Penanaman" style="width: 100%; height: 100%; object-fit: cover;">
+                                        <span style="position: absolute; top: 10px; left: 10px; background: rgba(13,33,21,0.85); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Penanaman</span>
+                                    </div>
+                                    <div style="padding: 14px; display: flex; flex-direction: column; flex-grow: 1;">
+                                        <div style="font-size: 0.7rem; color: #4ade80; margin-bottom: 5px;"><i class="fa-regular fa-calendar"></i> 02 Mei 2025</div>
+                                        <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3;">Perhutani Sosialisasikan Tanaman Tumpangsari ke KTH dan Pesanggem</h4>
+                                        <p style="font-size: 0.7rem; color: #bbf7d0; margin-top: auto; margin-bottom: 0;"><i class="fa-solid fa-location-dot" style="color: #4ade80;"></i> KPH Pemalang</p>
+                                    </div>
+                                </div>
+
+                                <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
+                                    <div style="position: relative; height: 150px;">
+                                        <img src="assets/rimba2.jpg" alt="Konservasi" style="width: 100%; height: 100%; object-fit: cover;">
+                                        <span style="position: absolute; top: 10px; left: 10px; background: rgba(13,33,21,0.85); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Konservasi</span>
+                                    </div>
+                                    <div style="padding: 14px; display: flex; flex-direction: column; flex-grow: 1;">
+                                        <div style="font-size: 0.7rem; color: #4ade80; margin-bottom: 5px;"><i class="fa-regular fa-calendar"></i> 11 September 2026</div>
+                                        <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3;">Perhutani Bina Pemungut Serasah Daun Jati untuk Jaga Kelestarian Hutan</h4>
+                                        <p style="font-size: 0.7rem; color: #bbf7d0; margin-top: auto; margin-bottom: 0;"><i class="fa-solid fa-location-dot" style="color: #4ade80;"></i> KPH Pemalang</p>
+                                    </div>
+                                </div>
+
+                                <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
+                                    <div style="position: relative; height: 150px;">
+                                        <img src="assets/rimba3.jpg" alt="Pemberdayaan" style="width: 100%; height: 100%; object-fit: cover;">
+                                        <span style="position: absolute; top: 10px; left: 10px; background: rgba(13,33,21,0.85); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Pemberdayaan</span>
+                                    </div>
+                                    <div style="padding: 14px; display: flex; flex-direction: column; flex-grow: 1;">
+                                        <div style="font-size: 0.7rem; color: #4ade80; margin-bottom: 5px;"><i class="fa-regular fa-calendar"></i> 17 September 2026</div>
+                                        <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3;">Perhutani KPH Pemalang Intensifkan Pemantauan Lapangan Jaga Keamanan Hutan</h4>
+                                        <p style="font-size: 0.7rem; color: #bbf7d0; margin-top: auto; margin-bottom: 0;"><i class="fa-solid fa-location-dot" style="color: #4ade80;"></i> KPH Pemalang</p>
+                                    </div>
+                                </div>
+
+                                <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
+                                    <div style="position: relative; height: 150px;">
+                                        <img src="assets/rimba4.jpg" alt="Edukasi" style="width: 100%; height: 100%; object-fit: cover;">
+                                        <span style="position: absolute; top: 10px; left: 10px; background: rgba(13,33,21,0.85); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Edukasi</span>
+                                    </div>
+                                    <div style="padding: 14px; display: flex; flex-direction: column; flex-grow: 1;">
+                                        <div style="font-size: 0.7rem; color: #4ade80; margin-bottom: 5px;"><i class="fa-regular fa-calendar"></i> 11 September 2026</div>
+                                        <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3;">Perhutani Tingkatkan Kesiapsiagaan Karhutla melalui Koordinasi Lintas Sektor</h4>
+                                        <p style="font-size: 0.7rem; color: #bbf7d0; margin-top: auto; margin-bottom: 0;"><i class="fa-solid fa-location-dot" style="color: #4ade80;"></i> KPH Pemalang</p>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
-                        <div class="ann-body">
-                            <h4>Kayu Pinus</h4>
-                            <p><b>Pengenalan : </b>Kayu pinus adalah kayu konifer yang dikelola luas oleh Perhutani.<br><b>Ciri-ciri : </b> Krem cerah, ringan, bertekstur lunak, estetik dengan mata kayu.<br><b>Fungsi : </b> Furnitur interior minimalis/skandinavia, kerajinan, dan palet logistik.</p>
-                            <div class="product-price"> Rp 2.000.000 – Rp 3.500.000 / m³</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.8 (62)</span>
+
+                        <!-- Kolom Kanan: Dampak & Video Mars Rimbawan -->
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            
+                            <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 16px; padding: 20px;">
+                                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid rgba(74,222,128,0.2); padding-bottom: 8px;">
+                                    <i class="fa-solid fa-chart-line" style="color: #4ade80;"></i>
+                                    <h4 style="font-size: 0.95rem; font-weight: 700; color: #ffffff;">Dampak Kegiatan Rimba</h4>
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+                                    <div style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 10px; border: 1px solid rgba(74,222,128,0.15);">
+                                        <div style="font-size: 0.85rem; font-weight: 700; color: #fff;">350.000+</div>
+                                        <div style="font-size: 0.68rem; color: #bbf7d0;">Bibit Ditanam</div>
+                                    </div>
+                                    <div style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 10px; border: 1px solid rgba(74,222,128,0.15);">
+                                        <div style="font-size: 0.85rem; font-weight: 700; color: #fff;">1.250 Ha</div>
+                                        <div style="font-size: 0.68rem; color: #bbf7d0;">Area Lestari</div>
+                                    </div>
+                                    <div style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 10px; border: 1px solid rgba(74,222,128,0.15);">
+                                        <div style="font-size: 0.85rem; font-weight: 700; color: #fff;">45+</div>
+                                        <div style="font-size: 0.68rem; color: #bbf7d0;">Desa Binaan</div>
+                                    </div>
+                                    <div style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 10px; border: 1px solid rgba(74,222,128,0.15);">
+                                        <div style="font-size: 0.85rem; font-weight: 700; color: #fff;">12.500+</div>
+                                        <div style="font-size: 0.68rem; color: #bbf7d0;">Penerima Manfaat</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 16px; padding: 20px;">
+                                <h4 style="font-size: 0.95rem; font-weight: 700; color: #ffffff; margin-bottom: 10px;">Lagu Mars Rimbawan</h4>
+                                <a href="https://youtu.be/HPqk0CuBFpA?si=uzaNVnuilmve5lwB" target="_blank" style="text-decoration: none; display: block;">
+                                    <div style="position: relative; height: 130px; border-radius: 10px; overflow: hidden; margin-bottom: 10px; border: 1px solid rgba(74,222,128,0.2);">
+                                        <img src="assets/rimba5.jpg" alt="Video Background" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7);">
+                                        <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
+                                            <div style="width: 42px; height: 42px; background: rgba(74, 222, 128, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0d2115; font-size: 1rem;">
+                                                <i class="fa-solid fa-play" style="margin-left: 2px;"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p style="font-size: 0.72rem; color: #bbf7d0; margin-bottom: 10px; line-height: 1.4;">Lagu kebanggaan rimbawan Indonesia yang melambangkan semangat kerja dan dedikasi terhadap kelestarian hutan.</p>
+                                    <span style="background: #4ade80; color: #0d2115; padding: 6px 14px; border-radius: 8px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 6px;">
+                                        Tonton Video <i class="fa-solid fa-arrow-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+
                         </div>
+
                     </div>
 
-                    <!-- Produk Kayu 6 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/kayusonokeling.jpg" alt="Kayu Sonokeling">
-                            <span class="product-badge">Kayu Sonokeling</span>
-                        </div>
-                        <div class="ann-body">
-                            <h4>Kayu Sonokeling</h4>
-                            <p><b>Pengenalan : </b>Kayu sonokeling adalah kayu keras mewah asli Indonesia (Java Palisander).<br><b>Ciri-ciri : </b> Warna gelap eksotis, sangat keras, berat, dan tahan rayap.<br><b>Fungsi : </b> Furnitur kelas atas, lantai premium, dan instrumen musik.</p>
-                            <div class="product-price">Rp 15.000.000 – Rp 25.000.000+ / m³</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.6 (19)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Keunggulan Box Kayu -->
-                <div class="herbal-features-box">
-                    <h4><i class="fa-solid fa-circle-question"></i> Mengapa Memilih Produk Kayu Perhutani?</h4>
-                    <div class="features-grid">
-                        <div class="feature-item">
-                            <div class="feat-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                            <h5>Legalitas Terjamin</h5>
-                            <p>Dilengkapi sertifikasi resmi pengelolaan hutan lestari (SVLK).</p>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feat-icon"><i class="fa-solid fa-award"></i></div>
-                            <h5>Kualitas Premium</h5>
-                            <p>Berasal dari pohon pilihan dengan usia tebang matang.</p>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feat-icon"><i class="fa-solid fa-earth-asia"></i></div>
-                            <h5>Eco-Friendly</h5>
-                            <p>Sistem tebang-tanam kembali untuk kelestarian alam.</p>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feat-icon"><i class="fa-solid fa-handshake"></i></div>
-                            <h5>Terpercaya</h5>
-                            <p>Menjadi mitra utama industri perkayuan nasional dan global.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TAB 3: NONKAYU -->
-            <div id="tab-nonkayu" class="unit-tab-content">
-                <div class="section-filter-bar">
-                    <h3 class="section-title"><i class="fa-solid fa-box-open"></i> Hasil Hutan Bukan Kayu</h3>
-                    <div class="header-buttons">
-                    </div>
-                </div>
-
-                <div class="herbal-products-grid">
-                    <!-- Produk Non Kayu 1 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/getahpinus.jpg" alt="Getah Pinus Mentah">
-                            <span class="product-badge">Getah Pinus</span>
-                        </div>
-                        <div class="ann-body">
-                            <h4>Getah Pinus</h4>
-                            <p><b>Pengenalan : </b>Getah pinus adalah cairan lengket berwarna putih keruh hingga kekuningan yang keluar dari batang pohon pinus ketika kulitnya disayat atau dilukai.<br><b>Ciri-ciri : </b>Cairan alami dari pohon pinus yang berwarna putih keruh hingga kekuningan, bertekstur sangat lengket dan kental, beraroma khas pinus yang tajam, serta tidak larut dalam air.<br><b>Fungsi : </b>Sebagai pelindung alami untuk menutup luka pada batang serta menghalau serangan hama dan infeksi jamur.</p>
-                            <div class="product-price">Rp 4.000 – Rp 5.000 / Kg</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.9 (45)</span>
-                        </div>
-                    </div>
-
-                    <!-- Produk Non Kayu 2 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/gondorukem.jpg" alt="Gondorukem Mutu Utama">
-                            <span class="product-badge">Gondorukem</span>
-                        </div>
-                        <div class="ann-body">
-                            <h4>Gondorukem</h4>
-                            <p><b>Pengenalan : </b>Gondorukem adalah Residu padat alami hasil penyulingan getah pohon pinus (Pinus merkusii) komoditas ekspor Perum Perhutani.<br><b>Ciri-ciri : </b>Bongkahan padat rapuh seperti kristal, kuning keemasan, dan tidak larut dalam air.<br><b>Fungsi : </b>Sebagai bahan baku alami untuk memberikan daya rekat, efek kilap, pelapis tahan air, dan sifat anti-licin pada berbagai produk industri seperti lem, cat, tinta, sabun, timah solder, hingga alat musik biola.</p>
-                            <div class="product-price">Rp 25.000 – Rp 41.000 / Kg</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.8 (38)</span>
-                        </div>
-                    </div>
-
-                    <!-- Produk Non Kayu 3 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/terpentin.jpg" alt="Terpentin">
-                            <span class="product-badge">Terpentin</span>
-                        </div>
-                        <div class="ann-body">
-                            <h4>Terpentin</h4>
-                            <p><b>Pengenalan : </b>Terpentin adalah cairan murni beraroma tajam hasil sulingan getah pinus yang berfungsi sebagai pelarut organik alami dan bahan baku wewangian.<br><b>Ciri-ciri : </b>Cairan encer yang jernih tak berwarna, tidak larut dalam air, mudah menguap terbakar, serta memiliki aroma pinus yang tajam dan menyengat.<br><b>Fungsi : </b>Sebagai pelarut alami untuk mengencerkan cat dan membersihkan kuas, bahan dasar pewangi karbol lantai, serta campuran balsem dan kosmetik.</p>
-                            <div class="product-price">Rp 30.000 – Rp 45.000 / Liter</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.9 (56)</span>
-                        </div>
-                    </div>
-
-                    <!-- Produk Non Kayu 4 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/tebu.jpg" alt="Tebu Perhutani">
-                            <span class="product-badge">Tebu</span>
-                        </div>
-                        <div class="ann-body">
-                            <h4>Tebu</h4>
-                            <p><b>Pengenalan : </b>Tebu adalah tanaman rumput penghasil gula pasir yang dibudidayakan di kawasan hutan melalui program Agroforestry Tebu Mandiri (ATM) Perum Perhutani.<br><b>Ciri-ciri : </b>Tanaman ini berakar serabut dengan batang beruas setinggi 2–5 meter yang menyimpan cairan manis dan memiliki daun berbentuk pita tajam.<br><b>Fungsi : </b>Komoditas ini berfungsi mengoptimalkan lahan kosong hutan untuk pendapatan cepat, mendukung swasembada gula, dan memberdayakan masyarakat tanpa merusak pohon utama.</p>
-                            <div class="product-price">Rp 600.000 – Rp 850.000 / Ton</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 5.0 (140)</span>
-                        </div>
-                    </div>
-
-                    <!-- Produk Non Kayu 5 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/benangsutra.jpg" alt="Sutra Alam Perhutani">
-                            <span class="product-badge">Sutra Alam</span>
-                        </div>
-                        <div class="ann-body">
-                            <h4>Benang Sutra Alam</h4>
-                            <p><b>Pengenalan : </b>Benang sutra adalah serat protein alami kontinu yang dihasilkan dari kepompong ulat sutra (terutama Bombyx mori) melalui proses pemintalan.<br><b>Ciri-ciri : </b>Serat ini memiliki kilau alami seperti mutiara, bertekstur sangat halus dan lembut, berkekuatan tinggi namun elastis, serta nyaman dipakai karena adem di cuaca panas dan hangat di cuaca dingin.<br><b>Keunggulan : </b>Bahan baku tekstil premium ini berfungsi sebagai material utama pakaian mewah (seperti gaun, kemeja, dan dasi), benang bedah medis, hingga komponen kosmetik.</p>
-                            <div class="product-price">Rp 60.000 – Rp 85.000 / Kg</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.7 (24)</span>
-                        </div>
-                    </div>
-
-                    <!-- Produk Non Kayu 6 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/jagung.jpg" alt="Jagung Perhutani">
-                            <span class="product-badge">Jagung</span>
-                        </div>
-                        <div class="ann-body">
-                            <h4>Jagung</h4>
-                            <p><b>Pengenalan : </b>Jagung adalah tanaman pangan semusim dari famili rumput-rumputan (Poaceae) yang menjadi salah satu sumber karbohidrat utama dunia selain padi dan gandum.<br><b>Ciri-ciri : </b>Tanaman ini memiliki batang tunggal beruas, berakar serabut, berdaun pita memanjang sejajar, serta menghasilkan tongkol berbiji rapat yang terbungkus kelobot (kropak).<br><b>Keunggulan : </b>Jagung berfungsi sebagai bahan makanan pokok manusia, bahan baku utama pakan ternak (unggas), serta sumber bahan baku industri seperti pati, sirup fruktosa, etanol, dan minyak nabati.</p>
-                            <div class="product-price">Rp 4.500 – Rp 5.500 / Kg</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.6 (31)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Keunggulan Box Non Kayu -->
-                <div class="herbal-features-box">
-                    <h4><i class="fa-solid fa-circle-question"></i> Mengapa Memilih Produk Non Kayu Perhutani?</h4>
-                    <div class="features-grid">
-                        <div class="feature-item">
-                            <div class="feat-icon"><i class="fa-solid fa-leaf"></i></div>
-                            <h5>Potensi Lestari</h5>
-                            <p>Memanfaatkan hasil hutan tanpa harus menebang pohon.</p>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feat-icon"><i class="fa-solid fa-industry"></i></div>
-                            <h5>Standar Industri</h5>
-                            <p>Memenuhi spesifikasi mutu untuk kebutuhan industri global.</p>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feat-icon"><i class="fa-solid fa-hands-holding-child"></i></div>
-                            <h5>Pemberdayaan Warga</h5>
-                            <p>Melibatkan pesanggem dan masyarakat sekitar hutan.</p>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feat-icon"><i class="fa-solid fa-circle-check"></i></div>
-                            <h5>Kualitas Teruji</h5>
-                            <p>Diproses dengan pengawasan ketat dan higienis.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- TAB 4: EKOWISATA -->
-            <div id="tab-ekowisata" class="unit-tab-content">
-                <div class="section-filter-bar">
-                    <h3 class="section-title"><i class="fa-solid fa-mountain"></i> Destinasi Ekowisata & Wisata Alam</h3>
-                    <div class="header-buttons">
-                    </div>
+        <!-- 3. SECTION PENGUMUMAN (DENGAN JUDUL JELAS DI ATASNYA) -->
+        <section id="pengumuman" class="services-section" style="padding-top: 10px; padding-bottom: 50px;">
+            <div class="container">
+                
+                <!-- Judul Bagian Pengumuman (Tampil Jelas) -->
+                <div style="margin-bottom: 30px; border-left: 4px solid #4ade80; padding-left: 15px;">
+                    <span style="color: #4ade80; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;">Pusat Informasi Publik</span>
+                    <h2 style="font-size: 1.8rem; font-weight: 800; color: #ffffff; margin-top: 4px;">Pengumuman & Tender Resmi</h2>
+                    <p style="color: #cbd5e1; font-size: 0.95rem; margin-top: 5px;">Informasi transparan mengenai kegiatan, pengadaan, dan kebijakan terkini Perhutani KPH Pemalang.</p>
                 </div>
 
-                <div class="herbal-products-grid">
-                    <!-- Destinasi 1 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/bukitmendelem.jpg" alt="Bukit Mendelem">
-                            <span class="product-badge">Pegunungan</span>
+                <div class="content-grid-layout" style="margin-top: 0;">
+                    
+                    <!-- KOLOM KIRI (Daftar Pengumuman) -->
+                    <div class="announcement-main-column">
+                        
+                        <!-- List Item 1 -->
+                        <div class="announcement-card" style="padding: 24px; margin-bottom: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
+                            <div class="ann-img">
+                                <img src="assets/pengumuman1.jpg" alt="Lelang Terbuka">
+                                <div class="date-badge">
+                                    <span class="day" style="font-size: 1.4rem;">3</span>
+                                    <span class="month" style="font-size: 0.95rem;">Agustus 2026</span>
+                                </div>
+                            </div>
+                            <div class="ann-body">
+                                <h4 style="font-size: 1.25rem; line-height: 1.45; margin-bottom: 12px; color: #fff;">Lelang Terbuka Produk Non-Kayu Perhutani : Gondorukem, Terpentin, dan Derivat</h4>
+                                <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 15px; color: #cbd5e1;">Perum Perhutani secara berkala menyelenggarakan Lelang Terbuka Produk Non-Kayu yang meliputi Gondorukem, Terpentin, dan Produk Derivatnya (seperti Alpha Pinene dan Delta Carene). Penjualan komoditas unggulan hasil olahan getah pinus ini ditujukan bagi para pelaku usaha domestik maupun internasional.</p>
+                                <div class="ann-footer">
+                                    <span class="tag-label" style="font-size: 0.85rem; padding: 6px 14px;">Kegiatan</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="ann-body">
-                            <h4>Bukit Mendelem (Gunung Jimat)</h4>
-                            <p><b>Lokasi : </b>Desa Mendelem, Kecamatan Belik, Kabupaten Pemalang, Jawa Tengah (Kawasan Hutan Perhutani KPH Pemalang).<br><b>Ciri Khas : </b> Dikenal masyarakat sebagai "Gunung Jimat" karena kental dengan situs sejarah cagar budaya, serta memiliki landmark ikonik berupa tulisan raksasa "PEMALANG" di lereng bukit batunya.<br><b>Keunggulan : </b> Menawarkan panorama alam indah berlatar Gunung Slamet, serta terkenal dengan wahana ekstrim Via Ferrata (pemanjatan tebing vertikal menggunakan tangga besi) di area bawah menyediakan flying fox.</p>
-                            <div class="product-price">Tiket: Rp 10.000</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.9 (120)</span>
+
+                        <!-- List Item 2 -->
+                        <div class="announcement-card" style="padding: 24px; margin-bottom: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
+                            <div class="ann-img">
+                                <img src="assets/pengumuman4.jpg" alt="Optimalisasi Aset">
+                                <div class="date-badge">
+                                    <span class="day" style="font-size: 1.4rem;">10</span>
+                                    <span class="month" style="font-size: 0.95rem;">Juni 2026</span>
+                                </div>
+                            </div>
+                            <div class="ann-body">
+                                <h4 style="font-size: 1.25rem; line-height: 1.45; margin-bottom: 12px; color: #fff;">Kerja Sama Optimalisasi Aset Tanah dan Bangunan Eks Kantor Unit III Perum Perhutani</h4>
+                                <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 15px; color: #cbd5e1;">Program Kerja Sama Optimalisasi Aset Tanah dan Bangunan Eks Kantor Unit III Perum Perhutani merupakan salah satu inisiatif strategis korporat untuk mendayagunakan aset tetap milik perusahaan yang berstatus idle agar menjadi lebih produktif.</p>
+                                <div class="ann-footer">
+                                    <span class="tag-label" style="font-size: 0.85rem; padding: 6px 14px;">Kebijakan</span>
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- List Item 3 -->
+                        <div class="announcement-card" style="padding: 24px; margin-bottom: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
+                            <div class="ann-img">
+                                <img src="assets/pengumuman.jpg" alt="Kalender Kegiatan">
+                                <div class="date-badge">
+                                    <span class="day" style="font-size: 1.4rem;">18</span>
+                                    <span class="month" style="font-size: 0.95rem;">September 2025</span>
+                                </div>
+                            </div>
+                            <div class="ann-body">
+                                <h4 style="font-size: 1.25rem; line-height: 1.45; margin-bottom: 12px; color: #fff;">KALENDER KEGIATAN CORPORATE PERUM PERHUTANI TAHUN 2025</h4>
+                                <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 15px; color: #cbd5e1;">Dokumen resmi mengenai Kalender Kegiatan Corporate Perum Perhutani Tahun 2025 diterbitkan langsung oleh manajemen pusat untuk memetakan agenda kerja, sasaran mutu korporat, serta program kerja strategis.</p>
+                                <div class="ann-footer">
+                                    <span class="tag-label other" style="font-size: 0.85rem; padding: 6px 14px;">Lainnya</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- List Item 4 -->
+                        <div class="announcement-card" style="padding: 24px; margin-bottom: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
+                            <div class="ann-img">
+                                <img src="assets/pengumuman5.jpg" alt="Pengadaan Sewa Kendaraan">
+                                <div class="date-badge">
+                                    <span class="day" style="font-size: 1.4rem;">28</span>
+                                    <span class="month" style="font-size: 0.95rem;">Agustus 2025</span>
+                                </div>
+                            </div>
+                            <div class="ann-body">
+                                <h4 style="font-size: 1.25rem; line-height: 1.45; margin-bottom: 12px; color: #fff;">Pengadaan Sewa Kendaraan Dinas Operasional Polisi Hutan Perum Perhutani Tahun 2025</h4>
+                                <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 15px; color: #cbd5e1;">Perum Perhutani Kantor Pusat menyelenggarakan paket tender umum pascakualifikasi untuk Pengadaan Sewa Kendaraan Dinas Operasional Polisi Hutan Perum Perhutani Tahun 2025.</p>
+                                <div class="ann-footer">
+                                    <span class="tag-label prestasi" style="font-size: 0.85rem; padding: 6px 14px;">Prestasi</span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <!-- Destinasi 2 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/wippas.jpg" alt="Wippas Surajaya">
-                            <span class="product-badge">Wippas Surajaya</span>
+                    <!-- KOLOM KANAN (Sidebar Pengumuman) -->
+                    <div class="announcement-sidebar-column">
+
+                        <!-- Pengumuman Populer Widget -->
+                        <div class="sidebar-widget" style="padding: 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; margin-bottom: 20px;">
+                            <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 18px;"><i class="fa-solid fa-star" style="color: #facc15;"></i> Populer</h4>
+                            <div class="popular-item" style="margin-bottom: 18px; display: flex; gap: 12px; align-items: center;">
+                                <img src="assets/pengumuman2.jpg" alt="Populer 1" style="width: 70px; height: 60px; object-fit: cover; border-radius: 8px;">
+                                <div>
+                                    <h5 style="font-size: 0.9rem; line-height: 1.3; color: #fff; margin-bottom: 4px;">Tender Seleksi Terbuka Pengadaan Jasa Angkutan Kayu</h5>
+                                    <span class="pop-date" style="font-size: 0.75rem; color: #94a3b8;">11 Juni 2025</span>
+                                </div>
+                            </div>
+                            <div class="popular-item" style="display: flex; gap: 12px; align-items: center;">
+                                <img src="assets/pengumuman6.jpg" alt="Populer 2" style="width: 70px; height: 60px; object-fit: cover; border-radius: 8px;">
+                                <div>
+                                    <h5 style="font-size: 0.9rem; line-height: 1.3; color: #fff; margin-bottom: 4px;">Sasaran Mutu Korporat Tahun 2025</h5>
+                                    <span class="pop-date" style="font-size: 0.75rem; color: #94a3b8;">14 Maret 2025</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="ann-body">
-                            <h4>Wippas Surajaya</h4>
-                            <p><b>Lokasi : </b>Desa Surajaya, Kecamatan Pemalang, Kabupaten Pemalang (Wilayah hutan Perhutani KPH Pemalang).<br><b>Ciri Khas :</b> Mengusung perpaduan konsep Wanawisata (wisata alam) hutan jati yang asri, habitat bagi ratusan kera liar yang jinak, serta keberadaan Situs Makam Pangeran Purbaya sebagai cagar budaya religi.<br><b>Keunggulan : </b> Destinasi wisata keluarga yang teduh dan edukatif, memiliki fasilitas embung (telaga buatan) dan kolam renang, serta memiliki akses yang dekat dari pusat Kota Pemalang.</p>
-                            <div class="product-price">Tiket: Rp 15.000</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.8 (95)</span>
+
+                        <!-- Tender Seleksi Widget -->
+                        <div class="sidebar-widget calendar-widget" style="padding: 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
+                            <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 12px;">Tender Seleksi</h4>
+                            <div class="photo-widget-container" style="margin-top: 15px; height: 350px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); padding: 5px;">
+                                <img src="assets/pengumuman2.jpg" alt="Tender Seleksi" style="width: 100%; height: 100%; display: block; object-fit: contain;">
+                            </div>
                         </div>
+
+                        <!-- WIDGET BARU 1: Agenda Mendatang -->
+                        <div class="sidebar-widget" style="margin-top: 20px; padding: 24px; background: rgba(13, 33, 21, 0.85); border: 1px solid rgba(74, 222, 128, 0.25); border-radius: 16px;">
+                            <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                                <i class="fa-solid fa-calendar-days" style="color: #4ade80;"></i> Agenda Mendatang
+                            </h4>
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div style="display: flex; gap: 12px; align-items: flex-start; padding-bottom: 12px; border-bottom: 1px dashed rgba(74,222,128,0.2);">
+                                    <div style="min-width: 45px; height: 45px; background: rgba(74,222,128,0.15); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #4ade80;">
+                                        <span style="font-size: 1rem; font-weight: 800; line-height: 1;">15</span>
+                                        <span style="font-size: 0.6rem; font-weight: 600;">DES</span>
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 0.8rem; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 2px;">Rapat Koordinasi LMDH</div>
+                                        <div style="font-size: 0.7rem; color: #bbf7d0;"><i class="fa-solid fa-location-dot"></i> Kantor KPH Pemalang</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 12px; align-items: flex-start; padding-bottom: 12px; border-bottom: 1px dashed rgba(74,222,128,0.2);">
+                                    <div style="min-width: 45px; height: 45px; background: rgba(74,222,128,0.15); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #4ade80;">
+                                        <span style="font-size: 1rem; font-weight: 800; line-height: 1;">20</span>
+                                        <span style="font-size: 0.6rem; font-weight: 600;">DES</span>
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 0.8rem; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 2px;">Penanaman Bersama</div>
+                                        <div style="font-size: 0.7rem; color: #bbf7d0;"><i class="fa-solid fa-location-dot"></i> BKPH Belik</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 12px; align-items: flex-start;">
+                                    <div style="min-width: 45px; height: 45px; background: rgba(74,222,128,0.15); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #4ade80;">
+                                        <span style="font-size: 1rem; font-weight: 800; line-height: 1;">05</span>
+                                        <span style="font-size: 0.6rem; font-weight: 600;">JAN</span>
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 0.8rem; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 2px;">Evaluasi Kinerja Tahunan</div>
+                                        <div style="font-size: 0.7rem; color: #bbf7d0;"><i class="fa-solid fa-location-dot"></i> Aula KPH Pemalang</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- WIDGET BARU 2: Unduhan Dokumen -->
+                        <div class="sidebar-widget" style="margin-top: 20px; padding: 24px; background: rgba(13, 33, 21, 0.85); border: 1px solid rgba(74, 222, 128, 0.25); border-radius: 16px;">
+                            <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                                <i class="fa-solid fa-file-arrow-down" style="color: #4ade80;"></i> Unduhan Dokumen
+                            </h4>
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <a href="#" style="display: flex; align-items: center; gap: 10px; padding: 10px; background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.15); border-radius: 8px; text-decoration: none; color: #fff; transition: background 0.2s;" onmouseover="this.style.background='rgba(74,222,128,0.18)'" onmouseout="this.style.background='rgba(74,222,128,0.08)'">
+                                    <i class="fa-solid fa-file-pdf" style="color: #f87171; font-size: 1.1rem;"></i>
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 0.78rem; font-weight: 700; line-height: 1.3;">Kalender Kegiatan 2025</div>
+                                        <div style="font-size: 0.65rem; color: #94a3b8;">PDF · 2.4 MB</div>
+                                    </div>
+                                    <i class="fa-solid fa-download" style="color: #4ade80; font-size: 0.8rem;"></i>
+                                </a>
+                                <a href="#" style="display: flex; align-items: center; gap: 10px; padding: 10px; background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.15); border-radius: 8px; text-decoration: none; color: #fff; transition: background 0.2s;" onmouseover="this.style.background='rgba(74,222,128,0.18)'" onmouseout="this.style.background='rgba(74,222,128,0.08)'">
+                                    <i class="fa-solid fa-file-pdf" style="color: #f87171; font-size: 1.1rem;"></i>
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 0.78rem; font-weight: 700; line-height: 1.3;">Sasaran Mutu Korporat</div>
+                                        <div style="font-size: 0.65rem; color: #94a3b8;">PDF · 1.1 MB</div>
+                                    </div>
+                                    <i class="fa-solid fa-download" style="color: #4ade80; font-size: 0.8rem;"></i>
+                                </a>
+                                <a href="#" style="display: flex; align-items: center; gap: 10px; padding: 10px; background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.15); border-radius: 8px; text-decoration: none; color: #fff; transition: background 0.2s;" onmouseover="this.style.background='rgba(74,222,128,0.18)'" onmouseout="this.style.background='rgba(74,222,128,0.08)'">
+                                    <i class="fa-solid fa-file-excel" style="color: #22c55e; font-size: 1.1rem;"></i>
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 0.78rem; font-weight: 700; line-height: 1.3;">Rekap Tender 2025</div>
+                                        <div style="font-size: 0.65rem; color: #94a3b8;">XLSX · 320 KB</div>
+                                    </div>
+                                    <i class="fa-solid fa-download" style="color: #4ade80; font-size: 0.8rem;"></i>
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <!-- Destinasi 3 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/benowopark.jpg" alt="Benowo Park">
-                            <span class="product-badge">Benowo Park</span>
-                        </div>
-                        <div class="ann-body">
-                            <h4>Benowo Park</h4>
-                            <p><b>Lokasi : </b>Desa Penggarit, Kecamatan Pemalang, Kabupaten Pemalang (Kawasan Hutan Jati Perhutani KPH Pemalang).<br><b>Ciri Khas : </b>Perpaduan wisata alam hutan jati yang rindang dengan wisata religi/sejarah Makam Pangeran Benowo, serta keunikan Pasar Tradisional Kamis Wage.<br><b>Keunggulan : </b>Pengunjung bisa bertransaksi kuliner jadul menggunakan koin kayu khusus, tersedia wahana edukasi seperti area memanah dan taman kelinci, serta akses jalan yang sangat mudah dijangkau dari pusat kota.</p>
-                            <div class="product-price">Tiket: Rp 25.000</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.7 (78)</span>
-                        </div>
-                    </div>
-
-                    <!-- Destinasi 4 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/tangkeban.jpg" alt="Bukit Tangkeban">
-                            <span class="product-badge">Jalur Hiking</span>
-                        </div>
-                        <div class="ann-body">
-                            <h4>Bukit Tangkeban</h4>
-                            <p><b>Lokasi : </b>Desa Nyalembeng, Kecamatan Pulosari, Kabupaten Pemalang, Jawa Tengah (Terletak di area lereng kaki Gunung Slamet).<br><b>Ciri Khas : </b>Menyuguhkan pemandangan megah Gunung Slamet secara langsung, populer dengan wahana Taman Langit yang ikonik, serta memiliki Jembatan Kaca transparan di atas ketinggian.<br><b>Keunggulan : </b>Menyuguhkan pemandangan megah Gunung Slamet secara langsung, populer dengan wahana Taman Langit yang ikonik, serta memiliki Jembatan Kaca transparan di atas ketinggian, hingga area glamping yang ramah pemuda dan keluarga.</p>
-                            <div class="product-price">Tiket: Rp 10.000</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.6 (62)</span>
-                        </div>
-                    </div>
-
-                    <!-- Destinasi 5 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/gununggajah.jpg" alt="Gunung Gajah">
-                            <span class="product-badge">Gunung Gajah</span>
-                        </div>
-                        <div class="ann-body">
-                            <h4>Gunung Gajah</h4>
-                            <p><b>Lokasi  :</b> Desa Gongseng, Kecamatan Randudongkal, Kabupaten Pemalang (Akses mudah jalan, wilayah Perhutani KPH Pemalang).<br><b>Ciri Khas : </b> Bukit batu purba menjulang tinggi yang siluetnya menyerupai bentuk gajah raksasa sedang tidur, serta menjadi habitat alami yang terlindungi bagi ratusan ekor kera ekor panjang.<br><b>Keunggulan : </b>Menawarkan petualangan trekking dan panjat tebing yang menantang adrenalin, menyuguhkan pemandangan bentangan hutan hijau yang menakjubkan dari puncak gardu pandang.</p>
-                            <div class="product-price">Tiket: Rp 10.000</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.8 (88)</span>
-                        </div>
-                    </div>
-
-                    <!-- Destinasi 6 -->
-                    <div class="announcement-card product-card">
-                        <div class="ann-img">
-                            <img src="assets/balegandrung.jpg" alt="Bale Gandrung">
-                            <span class="product-badge">Outbound</span>
-                        </div>
-                        <div class="ann-body">
-                            <h4>Bale Gandrung</h4>
-                            <p><b>Lokasi : </b>Desa Gambuhan, Kecamatan Pulosari, Kabupaten Pemalang (Berbatasan langsung dengan kawasan Bumijawa/Guci Tegal, wilayah Perhutani KPH Pemalang).<br><b>Ciri Khas : </b> Berfungsi ganda sebagai Destinasi Wisata sekaligus Rest Area Alam strategis di pinggir jalan raya, menyuguhkan hamparan hutan pinus yang rindang, serta latar belakang megahnya Gunung Slamet.<br><b>Keunggulan : </b> Tempat istirahat yang sejuk dan damai bagi pengendara luar kota, memiliki fasilitas outbound dan camping ground yang luas udara sejuk yang menenangkan, serta memiliki banyak spot foto estetik.</p>
-                            <div class="product-price">Tiket: Rp 10.000</div>
-                                <span class="product-rating"><i class="fa-solid fa-star"></i> 4.9 (105)</span>
-                        </div>
-                    </div>
                 </div>
 
-                <!-- Keunggulan Box Ekowisata -->
-                <div class="herbal-features-box">
-                    <h4><i class="fa-solid fa-circle-question"></i> Mengapa Memilih Ekowisata Perhutani?</h4>
-                    <div class="features-grid">
-                        <div class="feature-item">
-                            <div class="feat-icon"><i class="fa-solid fa-leaf"></i></div>
-                            <h5>Wisata Alam</h5>
-                            <p>Destinasi yang terjaga keasliannya dan lestari.</p>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feat-icon"><i class="fa-solid fa-users"></i></div>
-                            <h5>Edukasi Hutan</h5>
-                            <p>Mengenal ekosistem hutan secara langsung.</p>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feat-icon"><i class="fa-solid fa-shield-virus"></i></div>
-                            <h5>Aman & Nyaman</h5>
-                            <p>Fasilitas yang dikelola secara profesional.</p>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feat-icon"><i class="fa-solid fa-handshake"></i></div>
-                            <h5>Dampak Lokal</h5>
-                            <p>Wisata Anda mendukung ekonomi masyarakat.</p>
-                        </div>
-                    </div>
+            </div>
+        </section>
+    </main>
+
+  <footer class="footer-section">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-heading">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <h4>Kontak Kami</h4>
+                </div>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-user-tie"></i>Nama Administratur : Heri Nur Afandi, S.Hut, M.Si</li>
+                    <li><i class="fa-solid fa-phone"></i> (0284) 321617</li>
+                    <li><i class="fa-solid fa-envelope"></i> kphpemalang@perhutani.co.id</li>
+                    <li><i class="fa-solid fa-globe"></i> www.perhutani.co.id/kph-pemalang</li>
+                </ul>
+                <div class="social-links">
+                    <a href="https://twitter.com/your-perhutani" target="_blank" class="social-btn" title="Ikuti kami di X" style="background: #ffffff; color: #000000; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
+                        <svg style="width: 15px; height: 15px; fill: currentColor;" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/company/your-perhutani" target="_blank" class="social-btn" title="Ikuti kami di LinkedIn" style="background: #ffffff; color: #0a66c2; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://instagram.com" class="social-btn" title="Instagram" style="background: #ffffff; color: #e1306c; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://facebook.com" class="social-btn" title="Facebook" style="background: #ffffff; color: #1877f2; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://youtube.com" class="social-btn youtube" title="YouTube" style="background: #ffffff; color: #ff0000; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <a href="https://tiktok.com" class="social-btn tiktok" title="TikTok" style="background: #ffffff; color: #000000; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
                 </div>
             </div>
 
-            <!-- TAB 5: PENGELOLAAN HUTAN -->
-            <div id="tab-pengelolaan" class="unit-tab-content">
-                <div class="section-filter-bar">
-                    <h3 class="section-title"><i class="fa-solid fa-seedling"></i> Pengelolaan Hutan Lestari</h3>
+            <div class="footer-col">
+                <div class="footer-heading">
+                    <i class="fa-solid fa-clock"></i>
+                    <h4>Jam Kerja</h4>
                 </div>
-                <div class="announcement-card" style="padding: 24px; background: #fff; border-radius: 12px; margin-bottom: 20px;">
-                    <h4>Manajemen Hutan Komprehensif & Berkelanjutan</h4>
-                    <p style="margin-top: 10px; color: #475569; line-height: 1.6;">Manajemen kawasan hutan secara komprehensif mulai dari perencanaan, perlindungan, inventarisasi, hingga pemeliharaan fungsi ekologis dan sosial.</p>
-                    <a href="pengelolaanhutan.html" class="btn-top" style="display: inline-block; margin-top: 15px;">Pelajari Lebih Lanjut Halaman Pengelolaan Hutan →</a>
-                </div>
+                <ul class="schedule-list">
+                    <li>
+                        <span class="bullet active"></span>
+                        <div>
+                            <strong>Senin – Kamis</strong>
+                            <p>07.30 – 16.00 WIB</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="bullet active"></span>
+                        <div>
+                            <strong>Jumat</strong>
+                            <p>07.30 – 16.30 WIB</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="bullet"></span>
+                        <div>
+                            <strong>Sabtu – Minggu</strong>
+                            <p>Tutup</p>
+                        </div>
+                    </li>
+                </ul>
             </div>
 
-        </div>
-
-        <!-- Sidebar Kolom Kanan -->
-        <div class="announcement-sidebar-column">
-            <div class="sidebar-widget sidebar-dark-box">
-                <h4><i class="fa-solid fa-shield-halved"></i> Kualitas Terjamin</h4>
-                <div class="sidebar-list-content">
-                    <div>
-                        <strong><i class="fa-solid fa-tree"></i> Bahan Alami Pilihan</strong>
-                        <span>Dari hutan lestari yang terjaga kualitasnya.</span>
-                    </div>
-                    <div>
-                        <strong><i class="fa-solid fa-gears"></i> Proses Terstandar</strong>
-                        <span>Diproses dengan teknologi modern dan higienis.</span>
-                    </div>
-                    <div>
-                        <strong><i class="fa-solid fa-earth-asia"></i> Berkelanjutan</strong>
-                        <span>Mendukung kelestarian hutan dan masyarakat.</span>
-                    </div>
+            <div class="footer-col">
+                <div class="footer-heading">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <h4>Lokasi Kantor</h4>
                 </div>
-            </div>
-
-            <div class="sidebar-widget sidebar-info-box">
-                <h4><i class="fa-solid fa-circle-info"></i> Tahukah Anda?</h4>
-                <p>Hutan Indonesia menyimpan ribuan jenis tanaman obat dan hasil hutan bukan kayu yang telah digunakan secara turun-temurun untuk kesehatan dan industri.</p>
-            </div>
-
-            <div class="sidebar-widget sidebar-banner-box">
-                <h4>Hutan Lestari,<br>Produk Berkualitas</h4>
-                <div class="sidebar-extra-info" style="margin-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 12px; text-align: left;">
-                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.75rem; color: #cbd5e1; display: flex; flex-direction: column; gap: 8px;">
-                        <li><i class="fa-solid fa-check-circle" style="color: #4ade80; margin-right: 6px;"></i> Legalitas & Sertifikasi Resmi</li>
-                        <li><i class="fa-solid fa-check-circle" style="color: #4ade80; margin-right: 6px;"></i> Standar Mutu Industri Nasional</li>
-                        <li><i class="fa-solid fa-check-circle" style="color: #4ade80; margin-right: 6px;"></i> Berkontribusi pada Reboisasi</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Butuh Bantuan? -->
-            <div class="sidebar-widget" style="margin-top: 20px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; text-align: left;">
-                <h4 style="font-size: 1rem; color: #1e293b; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-                    <i class="fa-solid fa-headset" style="color: #15803d;"></i> Butuh Bantuan?
-                </h4>
-                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin-bottom: 15px;">
-                    Punya pertanyaan seputar ketersediaan produk atau ingin bekerja sama? Hubungi tim layanan kami.
+                <p class="office-address">
+                    Perhutani KPH Pemalang<br>
+                    Jl. Jenderal Sudirman Timur No. 3,<br>
+                    Wanarejan Selatan, Pemalang,<br>
+                    Jawa Tengah 52311
                 </p>
-                <a href="layanan.html" style="display: block; text-align: center; background: #f1f5f9; color: #15803d; padding: 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: background 0.2s;" onmouseover="this.style.background='#15803d'; this.style.color='#fff';" onmouseout="this.style.background='#f1f5f9'; this.style.color='#15803d';">
-                    <i class="fa-solid fa-paper-plane"></i> Hubungi Layanan
-                </a>
+                <div class="embedded-map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.8252271891516!2d109.3976230758784!3d-6.895089867500139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fb9b95146c26b%3A0x6b0a88703a5b3a88!2sJl.%20Jend.%20Sudirman%20Timur%20No.3%2C%20Mulyoharjo%2C%20Kec.%20Pemalang%2C%20Kabupaten%20Pemalang%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+                        width="100%" 
+                        height="120" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Peta Lokasi Perhutani KPH Pemalang">
+                    </iframe>
+                </div>
             </div>
 
-            <!-- WIDGET: Sertifikasi & Legalitas (non-duplikat) -->
-            <div class="sidebar-widget" style="margin-top: 20px; background: rgba(13, 33, 21, 0.85); border: 1px solid rgba(74, 222, 128, 0.25); border-radius: 12px; padding: 20px; text-align: left;">
-                <h4 style="font-size: 1rem; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
-                    <i class="fa-solid fa-certificate" style="color: #4ade80;"></i> Sertifikasi & Legalitas
-                </h4>
-                <div style="display: flex; flex-direction: column; gap: 10px;">
-                    <div style="display: flex; align-items: center; gap: 10px; padding: 10px; background: rgba(74,222,128,0.08); border-radius: 8px; border: 1px solid rgba(74,222,128,0.15);">
-                        <i class="fa-solid fa-shield-halved" style="color: #4ade80; font-size: 1rem;"></i>
+            <div class="footer-col">
+                <div class="footer-heading">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                    <h4>Email & Layanan</h4>
+                </div>
+                <ul class="service-links-footer">
+                    <li>
+                        <i class="fa-solid fa-file-shield"></i>
                         <div>
-                            <div style="font-size: 0.82rem; font-weight: 700; color: #fff;">SVLK</div>
-                            <div style="font-size: 0.7rem; color: #bbf7d0;">Sistem Verifikasi Legalitas Kayu</div>
+                            <span>Laporan Pengaduan</span>
+                            <a href="mailto:pengaduan@perhutani.co.id">pengaduan@perhutani.co.id</a>
                         </div>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 10px; padding: 10px; background: rgba(74,222,128,0.08); border-radius: 8px; border: 1px solid rgba(74,222,128,0.15);">
-                        <i class="fa-solid fa-award" style="color: #4ade80; font-size: 1rem;"></i>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-circle-info"></i>
                         <div>
-                            <div style="font-size: 0.82rem; font-weight: 700; color: #fff;">ISPO / PHPL</div>
-                            <div style="font-size: 0.7rem; color: #bbf7d0;">Pengelolaan Hutan Produksi Lestari</div>
+                            <span>Permohonan Informasi</span>
+                            <a href="mailto:informasi@perhutani.co.id">informasi@perhutani.co.id</a>
                         </div>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 10px; padding: 10px; background: rgba(74,222,128,0.08); border-radius: 8px; border: 1px solid rgba(74,222,128,0.15);">
-                        <i class="fa-solid fa-leaf" style="color: #4ade80; font-size: 1rem;"></i>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-building-shield"></i>
                         <div>
-                            <div style="font-size: 0.82rem; font-weight: 700; color: #fff;">FSC Certified</div>
-                            <div style="font-size: 0.7rem; color: #bbf7d0;">Forest Stewardship Council</div>
+                            <span>PPID Perhutani</span>
+                            <a href="mailto:ppid@perhutani.co.id">ppid@perhutani.co.id</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="photo-wrapper-small" style="margin-top: 15px;">
+                    <div class="bumn-photo-card" style="background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
+                        <img src="assets/bumn.jpg" alt="BUMN untuk Negeri" style="width: 100%; height: auto; max-height: 90px; object-fit: contain; display: block;">
+                        <div class="photo-caption" style="padding: 10px;">
+                            <span class="tag-bumn" style="font-size: 0.65rem; background: #15803d; color: #fff; padding: 2px 6px; border-radius: 3px;">BUMN Hadir</span>
+                            <p style="font-size: 0.75rem; color: #ccc; margin-top: 4px;">Komitmen nyata untuk negeri.</p>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- WIDGET: CTA Kemitraan (non-duplikat) -->
-            <div class="sidebar-widget" style="margin-top: 20px; background: linear-gradient(135deg, #15803d 0%, #166534 100%); border: 1px solid rgba(74, 222, 128, 0.4); border-radius: 12px; padding: 20px; text-align: center;">
-                <div style="width: 45px; height: 45px; background: rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem; margin: 0 auto 12px auto;">
-                    <i class="fa-solid fa-handshake"></i>
-                </div>
-                <h4 style="font-size: 0.95rem; color: #fff; margin-bottom: 8px; font-weight: 700;">Tertarik Bermitra?</h4>
-                <p style="font-size: 0.78rem; color: #dcfce7; line-height: 1.5; margin-bottom: 14px;">
-                    Bergabunglah sebagai mitra LMDH atau distributor resmi produk Perhutani.
-                </p>
-                <a href="karir.html" style="display: inline-block; background: #fff; color: #15803d; padding: 8px 18px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; text-decoration: none;">
-                    Daftar Mitra <i class="fa-solid fa-arrow-right" style="font-size: 0.7rem;"></i>
-                </a>
-            </div>
         </div>
 
-    </div>
-</main>
-
-<footer class="footer-section">
-    <div class="footer-grid">
-        <div class="footer-col">
-            <div class="footer-heading">
-                <i class="fa-solid fa-phone-volume"></i>
-                <h4>Kontak Kami</h4>
-            </div>
-            <ul class="contact-list">
-                <li><i class="fa-solid fa-user-tie"></i>Nama Administratur : Heri Nur Afandi, S.Hut, M.Si</li>
-                <li><i class="fa-solid fa-phone"></i> (0284) 321617</li>
-                <li><i class="fa-solid fa-envelope"></i> kphpemalang@perhutani.co.id</li>
-                <li><i class="fa-solid fa-globe"></i> www.perhutani.co.id/kph-pemalang</li>
-            </ul>
-            <div class="social-links">
-                <a href="https://twitter.com/your-perhutani" target="_blank" class="social-btn" title="Ikuti kami di X" style="background: #ffffff; color: #000000; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
-                    <svg style="width: 15px; height: 15px; fill: currentColor;" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                </a>
-                <a href="https://linkedin.com/company/your-perhutani" target="_blank" class="social-btn" title="Ikuti kami di LinkedIn" style="background: #ffffff; color: #0a66c2; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-                <a href="https://instagram.com" class="social-btn" title="Instagram" style="background: #ffffff; color: #e1306c; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://facebook.com" class="social-btn" title="Facebook" style="background: #ffffff; color: #1877f2; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="https://youtube.com" class="social-btn youtube" title="YouTube" style="background: #ffffff; color: #ff0000; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
-                    <i class="fa-brands fa-youtube"></i>
-                </a>
-                <a href="https://tiktok.com" class="social-btn tiktok" title="TikTok" style="background: #ffffff; color: #000000; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;">
-                    <i class="fa-brands fa-tiktok"></i>
-                </a>
+        <div class="footer-bottom-bar">
+            <p>© 2026 Perum Perhutani KPH Pemalang. All Rights Reserved.</p>
+            <div class="policy-links">
+                <a href="#">Kebijakan Privasi</a>
+                <span>•</span>
+                <a href="#">Syarat & Ketentuan</a>
             </div>
         </div>
+    </footer>
 
-        <div class="footer-col">
-            <div class="footer-heading">
-                <i class="fa-solid fa-clock"></i>
-                <h4>Jam Kerja</h4>
-            </div>
-            <ul class="schedule-list">
-                <li>
-                    <span class="bullet active"></span>
-                    <div>
-                        <strong>Senin – Kamis</strong>
-                        <p>07.30 – 16.00 WIB</p>
-                    </div>
-                </li>
-                <li>
-                    <span class="bullet active"></span>
-                    <div>
-                        <strong>Jumat</strong>
-                        <p>07.30 – 16.30 WIB</p>
-                    </div>
-                </li>
-                <li>
-                    <span class="bullet"></span>
-                    <div>
-                        <strong>Sabtu – Minggu</strong>
-                        <p>Tutup</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <div class="footer-heading">
-                <i class="fa-solid fa-location-dot"></i>
-                <h4>Lokasi Kantor</h4>
-            </div>
-            <p class="office-address">
-                Perhutani KPH Pemalang<br>
-                Jl. Jenderal Sudirman Timur No. 3,<br>
-                Wanarejan Selatan, Pemalang,<br>
-                Jawa Tengah 52311
-            </p>
-            <div class="embedded-map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.8252271891516!2d109.3976230758784!3d-6.895089867500139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fb9b95146c26b%3A0x6b0a88703a5b3a88!2sJl.%20Jend.%20Sudirman%20Timur%20No.3%2C%20Mulyoharjo%2C%20Kec.%20Pemalang%2C%20Kabupaten%20Pemalang%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
-                    width="100%" 
-                    height="120" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="Peta Lokasi Perhutani KPH Pemalang">
-                </iframe>
-            </div>
-        </div>
-
-        <div class="footer-col">
-            <div class="footer-heading">
-                <i class="fa-solid fa-envelope-open-text"></i>
-                <h4>Email & Layanan</h4>
-            </div>
-            <ul class="service-links-footer">
-                <li>
-                    <i class="fa-solid fa-file-shield"></i>
-                    <div>
-                        <span>Laporan Pengaduan</span>
-                        <a href="mailto:pengaduan@perhutani.co.id">pengaduan@perhutani.co.id</a>
-                    </div>
-                </li>
-                <li>
-                    <i class="fa-solid fa-circle-info"></i>
-                    <div>
-                        <span>Permohonan Informasi</span>
-                        <a href="mailto:informasi@perhutani.co.id">informasi@perhutani.co.id</a>
-                    </div>
-                </li>
-                <li>
-                    <i class="fa-solid fa-building-shield"></i>
-                    <div>
-                        <span>PPID Perhutani</span>
-                        <a href="mailto:ppid@perhutani.co.id">ppid@perhutani.co.id</a>
-                    </div>
-                </li>
-            </ul>
-
-            <div class="photo-wrapper-small" style="margin-top: 15px;">
-                <div class="bumn-photo-card" style="background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
-                    <img src="assets/bumn.jpg" alt="BUMN untuk Negeri" style="width: 100%; height: auto; max-height: 90px; object-fit: contain; display: block;">
-                    <div class="photo-caption" style="padding: 10px;">
-                        <span class="tag-bumn" style="font-size: 0.65rem; background: #15803d; color: #fff; padding: 2px 6px; border-radius: 3px;">BUMN Hadir</span>
-                        <p style="font-size: 0.75rem; color: #ccc; margin-top: 4px;">Komitmen nyata untuk negeri.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div id="imageModal" class="image-modal-overlay" onclick="closeFullImage()">
+        <button class="image-modal-close">&times;</button>
+        <img id="fullImageDisplay" src="" alt="Full Preview">
     </div>
 
-    <div class="footer-bottom-bar">
-        <p>© 2026 Perum Perhutani KPH Pemalang. All Rights Reserved.</p>
-        <div class="policy-links">
-            <a href="#">Kebijakan Privasi</a>
-            <span>•</span>
-            <a href="#">Syarat & Ketentuan</a>
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <nav class="mobile-nav-drawer" id="mobileNavDrawer">
+        <div class="mobile-drawer-header">
+            <div class="mobile-brand">
+                <img src="assets/perhutanii.jpg" alt="Logo">
+                <span>KPH PEMALANG</span>
+            </div>
+            <button type="button" class="mobile-drawer-close" id="mobileDrawerClose">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
         </div>
-    </div>
-</footer>
 
-<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+        <div class="mobile-drawer-body">
+            <ul class="mobile-nav-list">
+                <li>
+                    <a href="index.html" class="mobile-link">
+                        <span><i class="fa-solid fa-house"></i>Beranda</span>
+                    </a>
+                </li>
 
-<nav class="mobile-nav-drawer" id="mobileNavDrawer">
-    <div class="mobile-drawer-header">
-        <div class="mobile-brand">
-            <img src="assets/perhutanii.jpg" alt="Logo">
-            <span>KPH PEMALANG</span>
-        </div>
-        <button type="button" class="mobile-drawer-close" id="mobileDrawerClose">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-    </div>
-
-    <div class="mobile-drawer-body">
-        <ul class="mobile-nav-list">
-            <li>
-                <a href="index.html" class="mobile-link">
-                    <span><i class="fa-solid fa-house"></i>Beranda</span>
-                </a>
-            </li>
-
-           <li>
+              <li>
                    <a href="tentangkami.html" class="mobile-link">
                         <span><i class="fa-solid fa-building"></i>Tentang Kami</span>
                    </a>
                 </li>
-            <li>
-                <a href="unitbisnis.html" class="mobile-link active">
-                    <span><i class="fa-solid fa-briefcase"></i>Unit Bisnis</span>
-                </a>
-            </li>
 
-            <li>
-                <a href="publikasi.html" class="mobile-link">
-                    <span><i class="fa-solid fa-newspaper"></i>Publikasi</span>
-                </a>
-            </li>
+                <li>
+                    <a href="unitbisnis.html" class="mobile-link">
+                        <span><i class="fa-solid fa-briefcase"></i>Unit Bisnis</span>
+                    </a>
+                </li>
 
-            <li>
-                <a href="layanan.html" class="mobile-link">
-                    <span><i class="fa-solid fa-handshake-angle"></i>Layanan</span>
-                </a>
-            </li>
-            <li>
-                <a href="karir.html" class="mobile-link">
-                    <span><i class="fa-solid fa-user-tie"></i>Karir</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-</nav>
+                <li>
+                    <a href="publikasi.html" class="mobile-link active">
+                        <span><i class="fa-solid fa-newspaper"></i>Publikasi</span>
+                    </a>
+                </li>
 
-<script src="js/script.js"></script>
-
+                <li>
+                    <a href="layanan.html" class="mobile-link">
+                        <span><i class="fa-solid fa-handshake-angle"></i>Layanan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="karir.html" class="mobile-link">
+                        <span><i class="fa-solid fa-user-tie"></i>Karir</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <script src="js/script.js"></script>
 </body>
 </html>
