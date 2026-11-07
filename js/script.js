@@ -625,3 +625,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 100);
         }
     });
+
+    function switchTab(tabKey, btnElement) {
+        // Hilangkan kelas 'active' dari semua tombol pill
+        document.querySelectorAll('.cat-pill').forEach(btn => btn.classList.remove('active'));
+        
+        // Sembunyikan semua isi tab
+        document.querySelectorAll('.unit-tab-content').forEach(tab => tab.classList.remove('active'));
+
+        // Aktifkan tombol yang diklik
+        btnElement.classList.add('active');
+
+        // Tampilkan isi tab target
+        const targetTab = document.getElementById('tab-' + tabKey);
+        if (targetTab) {
+            targetTab.classList.add('active');
+        }
+    }
+
+    // === Auto-buka tab berdasarkan hash URL (mis. dari Beranda: #tab-kayu) ===
+    document.addEventListener('DOMContentLoaded', function () {
+        const hash = window.location.hash.replace('#', '');
+        if (!hash) return;
+        const tabKey = hash.replace('tab-', '');
+        const targetTab = document.getElementById('tab-' + tabKey);
+        if (!targetTab) return;
+
+        let matchedBtn = null;
+        document.querySelectorAll('.cat-pill').forEach(btn => {
+            const onclickAttr = btn.getAttribute('onclick') || '';
+            if (onclickAttr.includes("'" + tabKey + "'")) matchedBtn = btn;
+        });
+
+        if (matchedBtn) {
+            switchTab(tabKey, matchedBtn);
+            setTimeout(() => {
+                targetTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+    });
