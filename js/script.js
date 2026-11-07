@@ -566,3 +566,62 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+    function switchTab(tabKey, btnElement) {
+        document.querySelectorAll('.cat-pill').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.unit-tab-content').forEach(tab => tab.classList.remove('active'));
+        btnElement.classList.add('active');
+        const targetTab = document.getElementById('tab-' + tabKey);
+        if (targetTab) targetTab.classList.add('active');
+    }
+
+    // === TAMBAHAN: Buka tab otomatis berdasarkan hash URL ===
+    document.addEventListener('DOMContentLoaded', function () {
+        const hash = window.location.hash.replace('#', ''); // contoh: "tab-kayu"
+        if (!hash) return;
+
+        const tabKey = hash.replace('tab-', ''); // "kayu" / "ekowisata" / "herbal"
+        const targetTab = document.getElementById('tab-' + tabKey);
+        if (!targetTab) return;
+
+        // Cari tombol pill yang sesuai dengan tabKey
+        const pills = document.querySelectorAll('.cat-pill');
+        let matchedBtn = null;
+
+        pills.forEach(btn => {
+            const onclickAttr = btn.getAttribute('onclick') || '';
+            if (onclickAttr.includes("'" + tabKey + "'")) {
+                matchedBtn = btn;
+            }
+        });
+
+        if (matchedBtn) {
+            switchTab(tabKey, matchedBtn);
+            // Scroll halus ke area tab agar langsung terlihat
+            setTimeout(() => {
+                targetTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const hash = window.location.hash.replace('#', '');
+        if (!hash) return;
+
+        // Dukungan dua format: "#suara-rimba" (lama) dan "#tab-suararimba" (baru)
+        let targetId = null;
+
+        if (hash === 'tab-suararimba' || hash === 'suara-rimba') {
+            targetId = 'suara-rimba';
+        } else if (hash === 'tab-pengumuman' || hash === 'pengumuman') {
+            targetId = 'pengumuman';
+        } else {
+            targetId = hash; // fallback: anggap id langsung
+        }
+
+        const target = document.getElementById(targetId);
+        if (target) {
+            setTimeout(() => {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+    });
