@@ -282,7 +282,7 @@
                                 
                                 <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
                                     <div style="position: relative; height: 150px;">
-                                        <img src="assets/rimba1.jpg" alt="Penanaman" style="width: 100%; height: 100%; object-fit: cover;">
+                                        <img src="assets/rimba1.jpg" alt="Penanaman" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;" onclick="openFullImage(this.src)">
                                         <span style="position: absolute; top: 10px; left: 10px; background: rgba(13,33,21,0.85); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Penanaman</span>
                                     </div>
                                     <div style="padding: 14px; display: flex; flex-direction: column; flex-grow: 1;">
@@ -294,7 +294,7 @@
 
                                 <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
                                     <div style="position: relative; height: 150px;">
-                                        <img src="assets/rimba2.jpg" alt="Konservasi" style="width: 100%; height: 100%; object-fit: cover;">
+                                        <img src="assets/rimba2.jpg" alt="Konservasi" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;" onclick="openFullImage(this.src)">
                                         <span style="position: absolute; top: 10px; left: 10px; background: rgba(13,33,21,0.85); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Konservasi</span>
                                     </div>
                                     <div style="padding: 14px; display: flex; flex-direction: column; flex-grow: 1;">
@@ -306,7 +306,7 @@
 
                                 <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
                                     <div style="position: relative; height: 150px;">
-                                        <img src="assets/rimba3.jpg" alt="Pemberdayaan" style="width: 100%; height: 100%; object-fit: cover;">
+                                        <img src="assets/rimba3.jpg" alt="Pemberdayaan" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;" onclick="openFullImage(this.src)">
                                         <span style="position: absolute; top: 10px; left: 10px; background: rgba(13,33,21,0.85); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Pemberdayaan</span>
                                     </div>
                                     <div style="padding: 14px; display: flex; flex-direction: column; flex-grow: 1;">
@@ -318,7 +318,7 @@
 
                                 <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
                                     <div style="position: relative; height: 150px;">
-                                        <img src="assets/rimba4.jpg" alt="Edukasi" style="width: 100%; height: 100%; object-fit: cover;">
+                                        <img src="assets/rimba4.jpg" alt="Edukasi" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;" onclick="openFullImage(this.src)">
                                         <span style="position: absolute; top: 10px; left: 10px; background: rgba(13,33,21,0.85); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Edukasi</span>
                                     </div>
                                     <div style="padding: 14px; display: flex; flex-direction: column; flex-grow: 1;">
@@ -363,7 +363,7 @@
                                 <h4 style="font-size: 0.95rem; font-weight: 700; color: #ffffff; margin-bottom: 10px;">Lagu Mars Rimbawan</h4>
                                 <a href="https://youtu.be/HPqk0CuBFpA?si=uzaNVnuilmve5lwB" target="_blank" style="text-decoration: none; display: block;">
                                     <div style="position: relative; height: 130px; border-radius: 10px; overflow: hidden; margin-bottom: 10px; border: 1px solid rgba(74,222,128,0.2);">
-                                        <img src="assets/rimba5.jpg" alt="Video Background" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7);">
+                                        <img src="assets/rimba5.jpg" alt="Video Background" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7); cursor: pointer;" onclick="event.preventDefault(); openFullImage(this.src);">
                                         <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
                                             <div style="width: 42px; height: 42px; background: rgba(74, 222, 128, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0d2115; font-size: 1rem;">
                                                 <i class="fa-solid fa-play" style="margin-left: 2px;"></i>
@@ -404,7 +404,7 @@
                         <!-- List Item 1 -->
                         <div class="announcement-card" style="padding: 24px; margin-bottom: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
                             <div class="ann-img">
-                                <img src="assets/pengumuman1.jpg" alt="Lelang Terbuka">
+                                <img src="assets/pengumuman1.jpg" alt="Lelang Terbuka" style="cursor: pointer;" onclick="openFullImage(this.src)">
                                 <div class="date-badge">
                                     <span class="day" style="font-size: 1.4rem;">3</span>
                                     <span class="month" style="font-size: 0.95rem;">Agustus 2026</span>
@@ -422,7 +422,7 @@
                         <!-- List Item 2 -->
                         <div class="announcement-card" style="padding: 24px; margin-bottom: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
                             <div class="ann-img">
-                                <img src="assets/pengumuman4.jpg" alt="Optimalisasi Aset">
+                                <img src="assets/pengumuman4.jpg" alt="Optimalisasi Aset" style="cursor: pointer;" onclick="openFullImage(this.src)">
                                 <div class="date-badge">
                                     <span class="day" style="font-size: 1.4rem;">10</span>
                                     <span class="month" style="font-size: 0.95rem;">Juni 2026</span>
@@ -440,7 +440,7 @@
                         <!-- List Item 3 -->
                         <div class="announcement-card" style="padding: 24px; margin-bottom: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
                             <div class="ann-img">
-                                <img src="assets/pengumuman.jpg" alt="Kalender Kegiatan">
+                                <img src="assets/pengumuman.jpg" alt="Kalender Kegiatan" style="cursor: pointer;" onclick="openFullImage(this.src)">
                                 <div class="date-badge">
                                     <span class="day" style="font-size: 1.4rem;">18</span>
                                     <span class="month" style="font-size: 0.95rem;">September 2025</span>
@@ -458,7 +458,7 @@
                         <!-- List Item 4 -->
                         <div class="announcement-card" style="padding: 24px; margin-bottom: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
                             <div class="ann-img">
-                                <img src="assets/pengumuman5.jpg" alt="Pengadaan Sewa Kendaraan">
+                                <img src="assets/pengumuman5.jpg" alt="Pengadaan Sewa Kendaraan" style="cursor: pointer;" onclick="openFullImage(this.src)">
                                 <div class="date-badge">
                                     <span class="day" style="font-size: 1.4rem;">28</span>
                                     <span class="month" style="font-size: 0.95rem;">Agustus 2025</span>
@@ -482,80 +482,19 @@
                         <div class="sidebar-widget" style="padding: 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; margin-bottom: 20px;">
                             <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 18px;"><i class="fa-solid fa-star" style="color: #facc15;"></i> Populer</h4>
                             <div class="popular-item" style="margin-bottom: 18px; display: flex; gap: 12px; align-items: center;">
-                                <img src="assets/pengumuman2.jpg" alt="Populer 1" style="width: 70px; height: 60px; object-fit: cover; border-radius: 8px;">
+                                <img src="assets/pengumuman2.jpg" alt="Populer 1" style="width: 70px; height: 60px; object-fit: cover; border-radius: 8px; cursor: pointer;" onclick="openFullImage(this.src)">
                                 <div>
                                     <h5 style="font-size: 0.9rem; line-height: 1.3; color: #fff; margin-bottom: 4px;">Tender Seleksi Terbuka Pengadaan Jasa Angkutan Kayu</h5>
                                     <span class="pop-date" style="font-size: 0.75rem; color: #94a3b8;">11 Juni 2025</span>
                                 </div>
                             </div>
                             <div class="popular-item" style="display: flex; gap: 12px; align-items: center;">
-                                <img src="assets/pengumuman6.jpg" alt="Populer 2" style="width: 70px; height: 60px; object-fit: cover; border-radius: 8px;">
+                                <img src="assets/pengumuman6.jpg" alt="Populer 2" style="width: 70px; height: 60px; object-fit: cover; border-radius: 8px; cursor: pointer;" onclick="openFullImage(this.src)">
                                 <div>
                                     <h5 style="font-size: 0.9rem; line-height: 1.3; color: #fff; margin-bottom: 4px;">Sasaran Mutu Korporat Tahun 2025</h5>
                                     <span class="pop-date" style="font-size: 0.75rem; color: #94a3b8;">14 Maret 2025</span>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Tender Seleksi Widget (di bawah Populer) — Info HPS -->
-                        <div class="sidebar-widget" style="padding: 24px; background: rgba(13, 33, 21, 0.85); border: 1px solid rgba(74, 222, 128, 0.25); border-radius: 16px; margin-bottom: 20px;">
-                            <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
-                                <i class="fa-solid fa-gavel" style="color: #4ade80;"></i> Tender Seleksi
-                            </h4>
-                            <div style="display: flex; flex-direction: column; gap: 12px;">
-
-                                <!-- Tender 1 -->
-                                <div style="padding: 12px; background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.15); border-radius: 10px;">
-                                    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 8px;">
-                                        <span style="font-size: 0.82rem; font-weight: 700; color: #fff; line-height: 1.3;">Jasa Angkutan Kayu</span>
-                                        <span style="font-size: 0.6rem; background: #15803d; color: #fff; padding: 2px 8px; border-radius: 4px; font-weight: 700; white-space: nowrap;">BUKA</span>
-                                    </div>
-                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-top: 1px dashed rgba(74,222,128,0.2);">
-                                        <span style="font-size: 0.7rem; color: #bbf7d0;">HPS</span>
-                                        <span style="font-size: 0.82rem; font-weight: 700; color: #4ade80;">Rp 1.850.000.000</span>
-                                    </div>
-                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 4px 0;">
-                                        <span style="font-size: 0.7rem; color: #bbf7d0;"><i class="fa-regular fa-calendar"></i> Batas</span>
-                                        <span style="font-size: 0.72rem; color: #fff; font-weight: 600;">20 Des 2025</span>
-                                    </div>
-                                </div>
-
-                                <!-- Tender 2 -->
-                                <div style="padding: 12px; background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.15); border-radius: 10px;">
-                                    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 8px;">
-                                        <span style="font-size: 0.82rem; font-weight: 700; color: #fff; line-height: 1.3;">Sewa Kendaraan Dinas</span>
-                                        <span style="font-size: 0.6rem; background: #15803d; color: #fff; padding: 2px 8px; border-radius: 4px; font-weight: 700; white-space: nowrap;">BUKA</span>
-                                    </div>
-                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-top: 1px dashed rgba(74,222,128,0.2);">
-                                        <span style="font-size: 0.7rem; color: #bbf7d0;">HPS</span>
-                                        <span style="font-size: 0.82rem; font-weight: 700; color: #4ade80;">Rp 780.000.000</span>
-                                    </div>
-                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 4px 0;">
-                                        <span style="font-size: 0.7rem; color: #bbf7d0;"><i class="fa-regular fa-calendar"></i> Batas</span>
-                                        <span style="font-size: 0.72rem; color: #fff; font-weight: 600;">28 Des 2025</span>
-                                    </div>
-                                </div>
-
-                                <!-- Tender 3 -->
-                                <div style="padding: 12px; background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.15); border-radius: 10px;">
-                                    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 8px;">
-                                        <span style="font-size: 0.82rem; font-weight: 700; color: #fff; line-height: 1.3;">Optimalisasi Aset Unit III</span>
-                                        <span style="font-size: 0.6rem; background: #b45309; color: #fff; padding: 2px 8px; border-radius: 4px; font-weight: 700; white-space: nowrap;">SEGERA</span>
-                                    </div>
-                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-top: 1px dashed rgba(74,222,128,0.2);">
-                                        <span style="font-size: 0.7rem; color: #bbf7d0;">HPS</span>
-                                        <span style="font-size: 0.82rem; font-weight: 700; color: #4ade80;">Rp 2.400.000.000</span>
-                                    </div>
-                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 4px 0;">
-                                        <span style="font-size: 0.7rem; color: #bbf7d0;"><i class="fa-regular fa-calendar"></i> Batas</span>
-                                        <span style="font-size: 0.72rem; color: #fff; font-weight: 600;">15 Jan 2026</span>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <a href="layanan.html" style="display: block; text-align: center; margin-top: 14px; background: #f1f5f9; color: #15803d; padding: 9px; border-radius: 8px; font-size: 0.78rem; font-weight: 700; text-decoration: none; transition: background 0.2s;" onmouseover="this.style.background='#15803d'; this.style.color='#fff';" onmouseout="this.style.background='#f1f5f9'; this.style.color='#15803d';">
-                                <i class="fa-solid fa-list-check"></i> Lihat Semua Tender
-                            </a>
                         </div>
 
                         <!-- WIDGET BARU 1: Agenda Mendatang -->
@@ -581,7 +520,7 @@
                                     </div>
                                     <div>
                                         <div style="font-size: 0.8rem; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 2px;">Penanaman Bersama</div>
-                                        <div style="font-size: 0.7rem; color: #bbf7d0;"><i class="fa-solid fa-location-dot"></i> BKPH Cipero</div>
+                                        <div style="font-size: 0.7rem; color: #bbf7d0;"><i class="fa-solid fa-location-dot"></i> BKPH Belik</div>
                                     </div>
                                 </div>
                                 <div style="display: flex; gap: 12px; align-items: flex-start;">
@@ -764,7 +703,7 @@
 
                 <div class="photo-wrapper-small" style="margin-top: 15px;">
                     <div class="bumn-photo-card" style="background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
-                        <img src="assets/bumn.jpg" alt="BUMN untuk Negeri" style="width: 100%; height: auto; max-height: 90px; object-fit: contain; display: block;">
+                        <img src="assets/bumn.jpg" alt="BUMN untuk Negeri" style="width: 100%; height: auto; max-height: 90px; object-fit: contain; display: block; cursor: pointer;" onclick="openFullImage(this.src)">
                         <div class="photo-caption" style="padding: 10px;">
                             <span class="tag-bumn" style="font-size: 0.65rem; background: #15803d; color: #fff; padding: 2px 6px; border-radius: 3px;">BUMN Hadir</span>
                             <p style="font-size: 0.75rem; color: #ccc; margin-top: 4px;">Komitmen nyata untuk negeri.</p>
@@ -842,5 +781,6 @@
         </div>
     </nav>
     <script src="js/script.js"></script>
+   
 </body>
 </html>
