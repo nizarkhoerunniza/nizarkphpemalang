@@ -146,6 +146,16 @@
             box-sizing: border-box !important;
         }
 
+        /* Sticky sidebar di desktop agar tidak ada ruang kosong menggantung */
+        @media screen and (min-width: 993px) {
+            .announcement-sidebar-column {
+                position: sticky;
+                top: 100px;
+                align-self: start;
+                height: fit-content;
+            }
+        }
+
         @media screen and (max-width: 992px) {
             .herbal-products-grid {
                 grid-template-columns: repeat(2, 1fr) !important;
@@ -175,6 +185,7 @@
                 max-width: 100% !important;
                 padding: 0 !important;
                 margin: 0 !important;
+                position: static !important;
             }
 
             .herbal-products-grid {
@@ -303,7 +314,7 @@
                     <!-- Produk 1 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/kayuputih.jpg" alt="Kayu Putih">
+                            <img src="assets/kayuputih.jpg" alt="Kayu Putih" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Kayu Putih</span>
                         </div>
                         <div class="ann-body">
@@ -317,7 +328,7 @@
                     <!-- Produk 2 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/maduperhutani.jpg" alt="Madu">
+                            <img src="assets/maduperhutani.jpg" alt="Madu" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Madu</span>
                         </div>
                         <div class="ann-body">
@@ -331,7 +342,7 @@
                     <!-- Produk 3 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/sereh.jpg" alt="Serai Wangi">
+                            <img src="assets/sereh.jpg" alt="Serai Wangi" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Serai Wangi</span>
                         </div>
                         <div class="ann-body">
@@ -345,7 +356,7 @@
                     <!-- Produk 4 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/jahe.jpg" alt="Jahe">
+                            <img src="assets/jahe.jpg" alt="Jahe" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Jahe</span>
                         </div>
                         <div class="ann-body">
@@ -359,7 +370,7 @@
                     <!-- Produk 5 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/kapulaga.jpg" alt="Kapulaga">
+                            <img src="assets/kapulaga.jpg" alt="Kapulaga" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Kapulaga</span>
                         </div>
                         <div class="ann-body">
@@ -373,7 +384,7 @@
                     <!-- Produk 6 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/kunyit.jpg" alt="Kunyit">
+                            <img src="assets/kunyit.jpg" alt="Kunyit" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Kunyit</span>
                         </div>
                         <div class="ann-body">
@@ -425,7 +436,7 @@
                     <!-- Produk Kayu 1 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/kayubalsa.jpg" alt="Kayu Balsa">
+                            <img src="assets/kayubalsa.jpg" alt="Kayu Balsa" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Kayu Balsa</span>
                         </div>
                         <div class="ann-body">
@@ -439,7 +450,7 @@
                     <!-- Produk Kayu 2 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/kayujati.jpg" alt="Kayu Jati">
+                            <img src="assets/kayujati.jpg" alt="Kayu Jati" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Kayu Jati</span>
                         </div>
                         <div class="ann-body">
@@ -453,7 +464,7 @@
                     <!-- Produk Kayu 3 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/kayumahoni.jpg" alt="Kayu Mahoni">
+                            <img src="assets/kayumahoni.jpg" alt="Kayu Mahoni" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Kayu Mahoni</span>
                         </div>
                         <div class="ann-body">
@@ -467,7 +478,7 @@
                     <!-- Produk Kayu 4 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/kayumerbau.jpg" alt="Kayu Merbau">
+                            <img src="assets/kayumerbau.jpg" alt="Kayu Merbau" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Kayu Merbau</span>
                         </div>
                         <div class="ann-body">
@@ -481,7 +492,7 @@
                     <!-- Produk Kayu 5 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/kayupinus.jpg" alt="Kayu Pinus">
+                            <img src="assets/kayupinus.jpg" alt="Kayu Pinus" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Kayu Pinus</span>
                         </div>
                         <div class="ann-body">
@@ -495,7 +506,7 @@
                     <!-- Produk Kayu 6 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/kayusonokeling.jpg" alt="Kayu Sonokeling">
+                            <img src="assets/kayusonokeling.jpg" alt="Kayu Sonokeling" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Kayu Sonokeling</span>
                         </div>
                         <div class="ann-body">
@@ -547,7 +558,7 @@
                     <!-- Produk Non Kayu 1 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/getahpinus.jpg" alt="Getah Pinus Mentah">
+                            <img src="assets/getahpinus.jpg" alt="Getah Pinus Mentah" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Getah Pinus</span>
                         </div>
                         <div class="ann-body">
@@ -561,7 +572,7 @@
                     <!-- Produk Non Kayu 2 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/gondorukem.jpg" alt="Gondorukem Mutu Utama">
+                            <img src="assets/gondorukem.jpg" alt="Gondorukem Mutu Utama" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Gondorukem</span>
                         </div>
                         <div class="ann-body">
@@ -575,7 +586,7 @@
                     <!-- Produk Non Kayu 3 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/terpentin.jpg" alt="Terpentin">
+                            <img src="assets/terpentin.jpg" alt="Terpentin" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Terpentin</span>
                         </div>
                         <div class="ann-body">
@@ -589,7 +600,7 @@
                     <!-- Produk Non Kayu 4 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/tebu.jpg" alt="Tebu Perhutani">
+                            <img src="assets/tebu.jpg" alt="Tebu Perhutani" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Tebu</span>
                         </div>
                         <div class="ann-body">
@@ -603,7 +614,7 @@
                     <!-- Produk Non Kayu 5 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/benangsutra.jpg" alt="Sutra Alam Perhutani">
+                            <img src="assets/benangsutra.jpg" alt="Sutra Alam Perhutani" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Sutra Alam</span>
                         </div>
                         <div class="ann-body">
@@ -617,7 +628,7 @@
                     <!-- Produk Non Kayu 6 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/jagung.jpg" alt="Jagung Perhutani">
+                            <img src="assets/jagung.jpg" alt="Jagung Perhutani" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Jagung</span>
                         </div>
                         <div class="ann-body">
@@ -669,7 +680,7 @@
                     <!-- Destinasi 1 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/bukitmendelem.jpg" alt="Bukit Mendelem">
+                            <img src="assets/bukitmendelem.jpg" alt="Bukit Mendelem" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Pegunungan</span>
                         </div>
                         <div class="ann-body">
@@ -683,7 +694,7 @@
                     <!-- Destinasi 2 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/wippas.jpg" alt="Wippas Surajaya">
+                            <img src="assets/wippas.jpg" alt="Wippas Surajaya" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Wippas Surajaya</span>
                         </div>
                         <div class="ann-body">
@@ -697,7 +708,7 @@
                     <!-- Destinasi 3 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/benowopark.jpg" alt="Benowo Park">
+                            <img src="assets/benowopark.jpg" alt="Benowo Park" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Benowo Park</span>
                         </div>
                         <div class="ann-body">
@@ -711,7 +722,7 @@
                     <!-- Destinasi 4 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/tangkeban.jpg" alt="Bukit Tangkeban">
+                            <img src="assets/tangkeban.jpg" alt="Bukit Tangkeban" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Jalur Hiking</span>
                         </div>
                         <div class="ann-body">
@@ -725,7 +736,7 @@
                     <!-- Destinasi 5 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/gununggajah.jpg" alt="Gunung Gajah">
+                            <img src="assets/gununggajah.jpg" alt="Gunung Gajah" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Gunung Gajah</span>
                         </div>
                         <div class="ann-body">
@@ -739,7 +750,7 @@
                     <!-- Destinasi 6 -->
                     <div class="announcement-card product-card">
                         <div class="ann-img">
-                            <img src="assets/balegandrung.jpg" alt="Bale Gandrung">
+                            <img src="assets/balegandrung.jpg" alt="Bale Gandrung" style="cursor: pointer;" onclick="openFullImage(this.src)">
                             <span class="product-badge">Outbound</span>
                         </div>
                         <div class="ann-body">
@@ -829,6 +840,7 @@
                 </div>
             </div>
 
+            <!-- Butuh Bantuan? -->
             <div class="sidebar-widget" style="margin-top: 20px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; text-align: left;">
                 <h4 style="font-size: 1rem; color: #1e293b; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
                     <i class="fa-solid fa-headset" style="color: #15803d;"></i> Butuh Bantuan?
@@ -838,6 +850,50 @@
                 </p>
                 <a href="layanan.html" style="display: block; text-align: center; background: #f1f5f9; color: #15803d; padding: 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: background 0.2s;" onmouseover="this.style.background='#15803d'; this.style.color='#fff';" onmouseout="this.style.background='#f1f5f9'; this.style.color='#15803d';">
                     <i class="fa-solid fa-paper-plane"></i> Hubungi Layanan
+                </a>
+            </div>
+
+            <!-- WIDGET: Sertifikasi & Legalitas (non-duplikat) -->
+            <div class="sidebar-widget" style="margin-top: 20px; background: rgba(13, 33, 21, 0.85); border: 1px solid rgba(74, 222, 128, 0.25); border-radius: 12px; padding: 20px; text-align: left;">
+                <h4 style="font-size: 1rem; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-certificate" style="color: #4ade80;"></i> Sertifikasi & Legalitas
+                </h4>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 10px; background: rgba(74,222,128,0.08); border-radius: 8px; border: 1px solid rgba(74,222,128,0.15);">
+                        <i class="fa-solid fa-shield-halved" style="color: #4ade80; font-size: 1rem;"></i>
+                        <div>
+                            <div style="font-size: 0.82rem; font-weight: 700; color: #fff;">SVLK</div>
+                            <div style="font-size: 0.7rem; color: #bbf7d0;">Sistem Verifikasi Legalitas Kayu</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 10px; background: rgba(74,222,128,0.08); border-radius: 8px; border: 1px solid rgba(74,222,128,0.15);">
+                        <i class="fa-solid fa-award" style="color: #4ade80; font-size: 1rem;"></i>
+                        <div>
+                            <div style="font-size: 0.82rem; font-weight: 700; color: #fff;">ISPO / PHPL</div>
+                            <div style="font-size: 0.7rem; color: #bbf7d0;">Pengelolaan Hutan Produksi Lestari</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 10px; background: rgba(74,222,128,0.08); border-radius: 8px; border: 1px solid rgba(74,222,128,0.15);">
+                        <i class="fa-solid fa-leaf" style="color: #4ade80; font-size: 1rem;"></i>
+                        <div>
+                            <div style="font-size: 0.82rem; font-weight: 700; color: #fff;">FSC Certified</div>
+                            <div style="font-size: 0.7rem; color: #bbf7d0;">Forest Stewardship Council</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WIDGET: CTA Kemitraan (non-duplikat) -->
+            <div class="sidebar-widget" style="margin-top: 20px; background: linear-gradient(135deg, #15803d 0%, #166534 100%); border: 1px solid rgba(74, 222, 128, 0.4); border-radius: 12px; padding: 20px; text-align: center;">
+                <div style="width: 45px; height: 45px; background: rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem; margin: 0 auto 12px auto;">
+                    <i class="fa-solid fa-handshake"></i>
+                </div>
+                <h4 style="font-size: 0.95rem; color: #fff; margin-bottom: 8px; font-weight: 700;">Tertarik Bermitra?</h4>
+                <p style="font-size: 0.78rem; color: #dcfce7; line-height: 1.5; margin-bottom: 14px;">
+                    Bergabunglah sebagai mitra LMDH atau distributor resmi produk Perhutani.
+                </p>
+                <a href="karir.html" style="display: inline-block; background: #fff; color: #15803d; padding: 8px 18px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; text-decoration: none;">
+                    Daftar Mitra <i class="fa-solid fa-arrow-right" style="font-size: 0.7rem;"></i>
                 </a>
             </div>
         </div>
@@ -968,7 +1024,7 @@
 
             <div class="photo-wrapper-small" style="margin-top: 15px;">
                 <div class="bumn-photo-card" style="background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
-                    <img src="assets/bumn.jpg" alt="BUMN untuk Negeri" style="width: 100%; height: auto; max-height: 90px; object-fit: contain; display: block;">
+                    <img src="assets/bumn.jpg" alt="BUMN untuk Negeri" style="width: 100%; height: auto; max-height: 90px; object-fit: contain; display: block; cursor: pointer;" onclick="openFullImage(this.src)">
                     <div class="photo-caption" style="padding: 10px;">
                         <span class="tag-bumn" style="font-size: 0.65rem; background: #15803d; color: #fff; padding: 2px 6px; border-radius: 3px;">BUMN Hadir</span>
                         <p style="font-size: 0.75rem; color: #ccc; margin-top: 4px;">Komitmen nyata untuk negeri.</p>
@@ -987,6 +1043,12 @@
         </div>
     </div>
 </footer>
+
+<!-- Modal Popup untuk Gambar Full -->
+<div id="imageModal" class="image-modal-overlay" onclick="closeFullImage()">
+    <button class="image-modal-close">&times;</button>
+    <img id="fullImageDisplay" src="" alt="Full Preview">
+</div>
 
 <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
@@ -1041,23 +1103,6 @@
 </nav>
 
 <script src="js/script.js"></script>
-<script>
-    function switchTab(tabKey, btnElement) {
-        // Hilangkan kelas 'active' dari semua tombol pill
-        document.querySelectorAll('.cat-pill').forEach(btn => btn.classList.remove('active'));
-        
-        // Sembunyikan semua isi tab
-        document.querySelectorAll('.unit-tab-content').forEach(tab => tab.classList.remove('active'));
 
-        // Aktifkan tombol yang diklik
-        btnElement.classList.add('active');
-
-        // Tampilkan isi tab target
-        const targetTab = document.getElementById('tab-' + tabKey);
-        if (targetTab) {
-            targetTab.classList.add('active');
-        }
-    }
-</script>
 </body>
 </html>
