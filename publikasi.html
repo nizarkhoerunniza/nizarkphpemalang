@@ -108,6 +108,16 @@
         margin-bottom: 18px;
     }
 
+    .rimba-card-clickable {
+        cursor: pointer;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .rimba-card-clickable:hover {
+        transform: translateY(-4px);
+        border-color: rgba(74, 222, 128, 0.6) !important;
+    }
+
     /* Responsif untuk HP Android / Layar Kecil (Portrait) */
     @media screen and (max-width: 768px) {
         .services-section .container,
@@ -369,41 +379,43 @@
                         <!-- ISI KONTEN SUARA RIMBA -->
                         <div style="display: grid; grid-template-columns: 2fr 1.3fr; gap: 30px; align-items: start;" class="rimba-grid-responsive">
                             
-                            <!-- Kolom Kiri: Galeri Kegiatan Suara Rimba -->
+                            <!-- Kolom Kiri: Galeri Kegiatan Suara Rimba (KEEMPAT CARD BISA DIKLIK) -->
                             <div>
                                 <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
                                     <i class="fa-solid fa-camera-retro" style="color: #4ade80;"></i> Galeri & Warta Rimba
                                 </h3>
                                 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px;" class="rimba-kategori-responsive">
                                     
-                                    <!-- CARD PERTAMA (DIBERIKAN EVENT KLIK KE TAMPILAN DETAIL BERITA) -->
-                                    <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; cursor: pointer; transition: transform 0.2s;" onclick="bukaDetailSerasah()">
+                                    <!-- CARD 1 -->
+                                    <div class="rimba-card-clickable" style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;" onclick="bukaDetailRimba('rimba1')">
                                         <div style="position: relative; height: 150px;">
                                             <img src="assets/rimba1.jpg" alt="Penanaman" style="width: 100%; height: 100%; object-fit: cover;">
                                             <span style="position: absolute; top: 10px; left: 10px; background: rgba(13,33,21,0.85); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Penanaman</span>
                                         </div>
                                         <div style="padding: 14px; display: flex; flex-direction: column; flex-grow: 1;">
-                                            <div style="font-size: 0.7rem; color: #4ade80; margin-bottom: 5px;"><i class="fa-regular fa-calendar"></i> 08 Oktober 2026</div>
-                                            <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3;">Perhutani Bina Pemungut Serasah Daun di BKPH Bantarsari</h4>
+                                            <div style="font-size: 0.7rem; color: #4ade80; margin-bottom: 5px;"><i class="fa-regular fa-calendar"></i> 02 Mei 2025</div>
+                                            <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3;">Perhutani Sosialisasikan Tanaman Tumpangsari ke KTH dan Pesanggem</h4>
                                             <p style="font-size: 0.7rem; color: #bbf7d0; margin-top: auto; margin-bottom: 0;"><i class="fa-solid fa-location-dot" style="color: #4ade80;"></i> KPH Pemalang</p>
                                         </div>
                                     </div>
 
-                                    <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
+                                    <!-- CARD 2 -->
+                                    <div class="rimba-card-clickable" style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;" onclick="bukaDetailRimba('rimba2')">
                                         <div style="position: relative; height: 150px;">
-                                            <img src="assets/rimba2.jpg" alt="Konservasi" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;" onclick="openFullImage(this.src)">
+                                            <img src="assets/rimba2.jpg" alt="Konservasi" style="width: 100%; height: 100%; object-fit: cover;">
                                             <span style="position: absolute; top: 10px; left: 10px; background: rgba(13,33,21,0.85); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Konservasi</span>
                                         </div>
                                         <div style="padding: 14px; display: flex; flex-direction: column; flex-grow: 1;">
-                                            <div style="font-size: 0.7rem; color: #4ade80; margin-bottom: 5px;"><i class="fa-regular fa-calendar"></i> 11 September 2026</div>
+                                            <div style="font-size: 0.7rem; color: #4ade80; margin-bottom: 5px;"><i class="fa-regular fa-calendar"></i> 08 Oktober 2026</div>
                                             <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3;">Perhutani Bina Pemungut Serasah Daun Jati untuk Jaga Kelestarian Hutan</h4>
                                             <p style="font-size: 0.7rem; color: #bbf7d0; margin-top: auto; margin-bottom: 0;"><i class="fa-solid fa-location-dot" style="color: #4ade80;"></i> KPH Pemalang</p>
                                         </div>
                                     </div>
 
-                                    <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
+                                    <!-- CARD 3 -->
+                                    <div class="rimba-card-clickable" style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;" onclick="bukaDetailRimba('rimba3')">
                                         <div style="position: relative; height: 150px;">
-                                            <img src="assets/rimba3.jpg" alt="Pemberdayaan" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;" onclick="openFullImage(this.src)">
+                                            <img src="assets/rimba3.jpg" alt="Pemberdayaan" style="width: 100%; height: 100%; object-fit: cover;">
                                             <span style="position: absolute; top: 10px; left: 10px; background: rgba(13,33,21,0.85); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Pemberdayaan</span>
                                         </div>
                                         <div style="padding: 14px; display: flex; flex-direction: column; flex-grow: 1;">
@@ -413,9 +425,10 @@
                                         </div>
                                     </div>
 
-                                    <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
+                                    <!-- CARD 4 -->
+                                    <div class="rimba-card-clickable" style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;" onclick="bukaDetailRimba('rimba4')">
                                         <div style="position: relative; height: 150px;">
-                                            <img src="assets/rimba4.jpg" alt="Edukasi" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;" onclick="openFullImage(this.src)">
+                                            <img src="assets/rimba4.jpg" alt="Edukasi" style="width: 100%; height: 100%; object-fit: cover;">
                                             <span style="position: absolute; top: 10px; left: 10px; background: rgba(13,33,21,0.85); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Edukasi</span>
                                         </div>
                                         <div style="padding: 14px; display: flex; flex-direction: column; flex-grow: 1;">
@@ -481,27 +494,27 @@
                     </div>
                 </div>
 
-                <!-- TAMPILAN DETAIL BERITA RIMBAWAN (FOTO FULL DI ATAS + TEKS LENGKAP DI BAWAHNYA) -->
-                <div id="detail-berita-serasah" class="detail-container hidden">
-                    <button class="btn-kembali" onclick="tutupDetailSerasah()">
+                <!-- TAMPILAN DETAIL BERITA RIMBAWAN (DINAMIS UNTUK KEEMPAT CARD) -->
+                <div id="detail-berita-rimba" class="detail-container hidden">
+                    <button class="btn-kembali" onclick="tutupDetailRimba()">
                         <i class="fa-solid fa-arrow-left"></i> Kembali ke Suara Rimba
                     </button>
                     
                     <article>
-                        <h1 class="artikel-judul">Perhutani Bina Pemungut Serasah Daun di BKPH Bantarsari</h1>
+                        <h1 id="rimba-detail-judul" class="artikel-judul">Judul Berita</h1>
                         <div class="artikel-meta">
-                            <span class="badge-detail">Penanaman & Komsos</span>
-                            <span><i class="fa-regular fa-calendar"></i> Kamis, 08 Oktober 2026</span>
+                            <span id="rimba-detail-kategori" class="badge-detail">Kategori</span>
+                            <span><i class="fa-regular fa-calendar"></i> <span id="rimba-detail-tanggal">Tanggal</span></span>
                         </div>
 
                         <!-- Gambar Full di Atas Teks -->
                         <div class="artikel-gambar-full">
-                            <img src="assets/rimba1.jpg" alt="Perhutani Bina Pemungut Serasah Daun">
+                            <img id="rimba-detail-gambar" src="" alt="Gambar Berita Full">
                         </div>
 
-                        <!-- Teks Berita Sesuai Permintaan -->
-                        <div class="artikel-konten">
-                            <p><strong>PEMALANG, PERHUTANI (08/10/2026)</strong> | Perhutani Kesatuan Pemangkuan Hutan (KPH) Pemalang melalui Bagian Kesatuan Pemangkuan Hutan (BKPH) Bantarsari terus menjaga komunikasi sosial (komsos) dengan pesanggem sebagai bagian dari koordinasi kegiatan tanaman. Kegiatan tersebut dilakukan oleh Kepala BKPH Bantarsari Eko Pranoto bersama Mandor Tanam dan pesanggem di Petak 67, Resort Pemangkuan Hutan (RPH) Karangasem, Kamis (08/10).</p>
+                        <!-- Teks Berita Lengkap di Bawah Gambar -->
+                        <div id="rimba-detail-konten" class="artikel-konten">
+                            <!-- Isi teks berita akan dimuat otomatis oleh JavaScript -->
                         </div>
                     </article>
                 </div>
@@ -905,22 +918,83 @@
         </div>
     </nav>
 
-    <!-- SCRIPT TAMBAHAN UNTUK INTERAKSI KLIK ARTIKEL RIMBAWAN -->
+    <!-- SCRIPT TAMBAHAN UNTUK INTERAKSI KLIK KEEMPAT CARD SUARA RIMBA -->
     <script>
-        function bukaDetailSerasah() {
+        const dataSuaraRimba = {
+            rimba1: {
+                judul: 'Perhutani Sosialisasikan Tanaman Tumpangsari ke KTH dan Pesanggem',
+                kategori: 'Penanaman',
+                tanggal: '02 Mei 2025',
+                gambar: 'assets/rimba1.jpg',
+                konten: `
+                    <p><strong>PEMALANG, PERHUTANI (02/05/2025)</strong> | Perhutani Kesatuan Pemangkuan Hutan (KPH) Pemalang terus mendorong peningkatan kesejahteraan masyarakat sekitar hutan melalui sosialisasi pola tanaman tumpangsari bersama Kelompok Tani Hutan (KTH) dan para pesanggem di wilayah kerja KPH Pemalang.</p>
+                    <p>Melalui skema kemitraan kehutanan ini, para pesanggem diberikan pendampingan teknis budidaya tanaman palawija di sela-sela tanaman pokok kehutanan agar produktivitas lahan tetap optimal tanpa mengganggu pertumbuhan tegakan hutan.</p>
+                `
+            },
+            rimba2: {
+                judul: 'Perhutani Bina Pemungut Serasah Daun Jati untuk Jaga Kelestarian Hutan',
+                kategori: 'Konservasi & Komsos',
+                tanggal: 'Kamis, 08 Oktober 2026',
+                gambar: 'assets/rimba2.jpg',
+                konten: `
+                    <p><strong>PEMALANG, PERHUTANI (08/10/2026)</strong> | Perhutani Kesatuan Pemangkuan Hutan (KPH) Pemalang melalui Bagian Kesatuan Pemangkuan Hutan (BKPH) Bantarsari terus menjaga komunikasi sosial (komsos) dengan pesanggem sebagai bagian dari koordinasi kegiatan tanaman. Kegiatan tersebut dilakukan oleh Kepala BKPH Bantarsari Eko Pranoto bersama Mandor Tanam dan pesanggem di Petak 67, Resort Pemangkuan Hutan (RPH) Karangasem, Kamis (08/10).</p>
+                    <p>Pembinaan ini juga menekankan pentingnya ketertiban saat pengambilan serasah daun jati di kawasan hutan serta upaya pencegahan dini terhadap potensi kebakaran hutan dan lahan (karhutla).</p>
+                `
+            },
+            rimba3: {
+                judul: 'Perhutani KPH Pemalang Intensifkan Pemantauan Lapangan Jaga Keamanan Hutan',
+                kategori: 'Pemberdayaan',
+                tanggal: '17 September 2026',
+                gambar: 'assets/rimba3.jpg',
+                konten: `
+                    <p><strong>PEMALANG, PERHUTANI (17/09/2026)</strong> | Jajaran petugas lapangan Perhutani KPH Pemalang bersama Polisi Hutan (Polhut) dan Lembaga Masyarakat Desa Hutan (LMDH) mengintensifkan patroli serta pemantauan rutin di sejumlah titik rawan gangguan keamanan hutan.</p>
+                    <p>Sinergi bersama masyarakat desa sekitar hutan menjadi kunci utama dalam mendeteksi secara dini potensi gangguan maupun kerusakan ekosistem hutan di wilayah Kabupaten Pemalang.</p>
+                `
+            },
+            rimba4: {
+                judul: 'Perhutani Tingkatkan Kesiapsiagaan Karhutla melalui Koordinasi Lintas Sektor',
+                kategori: 'Edukasi',
+                tanggal: '11 September 2026',
+                gambar: 'assets/rimba4.jpg',
+                konten: `
+                    <p><strong>PEMALANG, PERHUTANI (11/09/2026)</strong> | Perhutani KPH Pemalang menggelar apel kesiapsiagaan serta koordinasi lintas sektor bersama TNI, Polri, BPBD, dan relawan masyarakat peduli api guna mengantisipasi terjadinya kebakaran hutan dan lahan (karhutla).</p>
+                    <p>Selain pengecekan sarana dan prasarana pemadam kebakaran, kegiatan ini juga diisi dengan edukasi lapangan mengenai langkah cepat penanganan titik api serta imbauan kepada warga agar tidak membakar serasah di sekitar kawasan hutan.</p>
+                `
+            }
+        };
+
+        function bukaDetailRimba(id) {
+            const data = dataSuaraRimba[id];
+            if (!data) return;
+
+            document.getElementById('rimba-detail-judul').innerText = data.judul;
+            document.getElementById('rimba-detail-kategori').innerText = data.kategori;
+            document.getElementById('rimba-detail-tanggal').innerText = data.tanggal;
+            document.getElementById('rimba-detail-gambar').src = data.gambar;
+            document.getElementById('rimba-detail-gambar').alt = data.judul;
+            document.getElementById('rimba-detail-konten').innerHTML = data.konten;
+
             document.getElementById('halaman-utama-rimba').classList.add('hidden');
-            document.getElementById('detail-berita-serasah').classList.remove('hidden');
-            window.scrollTo({ top: document.getElementById('suara-rimba').offsetTop - 80, behavior: 'smooth' });
+            document.getElementById('detail-berita-rimba').classList.remove('hidden');
+
+            window.scrollTo({
+                top: document.getElementById('suara-rimba').offsetTop - 80,
+                behavior: 'smooth'
+            });
         }
 
-        function tutupDetailSerasah() {
-            document.getElementById('detail-berita-serasah').classList.add('hidden');
+        function tutupDetailRimba() {
+            document.getElementById('detail-berita-rimba').classList.add('hidden');
             document.getElementById('halaman-utama-rimba').classList.remove('hidden');
-            window.scrollTo({ top: document.getElementById('suara-rimba').offsetTop - 80, behavior: 'smooth' });
+
+            window.scrollTo({
+                top: document.getElementById('suara-rimba').offsetTop - 80,
+                behavior: 'smooth'
+            });
         }
     </script>
     
     <script src="js/script.js"></script>
    
 </body>
-                                        </html>
+                                    </html>
